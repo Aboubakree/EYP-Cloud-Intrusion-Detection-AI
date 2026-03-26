@@ -1,0 +1,22 @@
+Sujet : « Détection d’intrusions dans le Cloud avec l’IA »
+
+Idée :
+Développement d’un système intelligent de détection d’intrusions pour infrastructures Cloud.
+
+Objectif :
+Créer un système qui analyse le trafic réseau et détecte automatiquement les cyberattaques.
+
+Technologies possibles :
+
+Python
+TensorFlow / PyTorch
+Docker
+Kubernetes
+AWS / Azure / Google Cloud
+SIEM (ex : Splunk ou ELK Stack)
+Fonctionnalités :
+
+Analyse du trafic réseau
+Détection d’anomalies avec Machine Learning
+Alertes automatiques
+Dashboard de monitoring
