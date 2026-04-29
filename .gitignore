@@ -1,0 +1,48 @@
+# Virtual environment
+venv/
+env/
+.env
+
+# Dataset files (too large for git)
+datasets/
+*.csv
+*.pcap
+*.zip
+*.tar.gz
+
+# Trained models (large binary files)
+models/*.pkl
+models/*.pt
+models/*.h5
+models/*.joblib
+
+# MLflow tracking data
+mlruns/
+mlartifacts/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# OS 
+
+
+# IDE
+.vscode/
+.idea/
+
+# Logs and captures
+*.log
+logs/
+*.pcap
+
+# Docker volumes
+docker/
+docker/volumes/
