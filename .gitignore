@@ -46,3 +46,9 @@ logs/
 # Docker volumes
 docker/
 docker/volumes/
+
+trash.py
+
+detection_reslt.md
+
+labels.md

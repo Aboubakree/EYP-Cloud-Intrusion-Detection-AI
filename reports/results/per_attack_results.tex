@@ -1,0 +1,15 @@
+\begin{table}[h]
+\centering
+\caption{Detection results on independently generated lab traffic. Each capture was produced in isolation on the lab VMs, so every flow is ground-truth labelled by the attack that generated it.}
+\label{tab:per-attack-results}
+\begin{tabular}{lrrrr}
+\toprule
+Traffic type & Flows & Flagged & Rate (\%) & Max prob. \\
+\midrule
+Benign traffic & 21 & 0 & 0.00 & 0.160 \\
+SSH brute force & 6 & 4 & 66.67 & 0.695 \\
+Port scan & 65,537 & 0 & 0.00 & 0.270 \\
+SYN flood (DoS) & 1,523,389 & 0 & 0.00 & 0.150 \\
+\bottomrule
+\end{tabular}
+\end{table}
