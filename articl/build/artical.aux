@@ -1,0 +1,86 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{aws_guardduty_suppression}
+\@writefile{toc}{\contentsline {title}{From Benchmark to Laboratory: Measuring the Generalization Gap of an Explainable Machine Learning Intrusion Detector for Cloud Environments}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\authcount {2}}
+\@writefile{toc}{\contentsline {author}{Aboubakr Krid \and Youssef Fakhri}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{ahmad2021network,ali2025dlvsml,kimanzi2024deep}
+\citation{holm2014signature}
+\citation{khraisat2019survey}
+\citation{ahmad2021network,kimanzi2024deep}
+\citation{ali2025dlvsml}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Signature-based detection.}{2}{section*.2}\protected@file@percent }
+\citation{lundberg2017shap}
+\citation{mohale2025xaiids}
+\citation{sharafaldin2018cicids}
+\citation{engelen2021troubleshooting}
+\citation{rosay2022comprehensive}
+\@writefile{toc}{\contentsline {paragraph}{Learning-based detection.}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Explainability.}{3}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{The benchmark itself.}{3}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{What is missing.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset Preparation}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Feature Engineering and Selection}{3}{subsection.3.2}\protected@file@percent }
+\citation{rosay2022comprehensive}
+\citation{breiman2001random}
+\citation{hochreiter1997lstm,lecun2015deep}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Effect of each cleaning step on the number of flows.}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:cleaning}{{1}{4}{Effect of each cleaning step on the number of flows}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Feature count at each stage of preparation.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:features}{{2}{4}{Feature count at each stage of preparation}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Models and Evaluation Protocol}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Data partitions. The test set is used once, on the selected model.}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:protocol}{{3}{5}{Data partitions. The test set is used once, on the selected model}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Two-machine laboratory on a KVM host. All experimental traffic crosses the isolated \texttt  {ids-lab} segment and is captured on the target.}}{5}{figure.1}\protected@file@percent }
+\newlabel{fig:lab}{{1}{5}{Two-machine laboratory on a KVM host. All experimental traffic crosses the isolated \texttt {ids-lab} segment and is captured on the target}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Laboratory Testbed and Attack Generation}{5}{subsection.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Candidate performance on the validation split of 205,653 flows.}}{6}{table.4}\protected@file@percent }
+\newlabel{tab:models}{{4}{6}{Candidate performance on the validation split of 205,653 flows}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Feature Reconciliation}{6}{subsection.3.5}\protected@file@percent }
+\newlabel{sec:reconciliation}{{3.5}{6}{Feature Reconciliation}{subsection.3.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{6}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Model Selection}{6}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Validation confusion matrices of the three candidates over the same 205,653 flows. The models differ in false positives, not in detection.}}{7}{figure.2}\protected@file@percent }
+\newlabel{fig:cmval}{{2}{7}{Validation confusion matrices of the three candidates over the same 205,653 flows. The models differ in false positives, not in detection}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Benchmark Performance}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Explanations}{7}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces SHAP values for individual flows. Each point is one flow, horizontal position is the contribution of that feature to the verdict, and colour is the value of the feature.}}{8}{figure.3}\protected@file@percent }
+\newlabel{fig:beeswarm}{{3}{8}{SHAP values for individual flows. Each point is one flow, horizontal position is the contribution of that feature to the verdict, and colour is the value of the feature}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Detection on independently generated laboratory traffic. Every flow is labelled by the tool that produced its capture. The benign row reports false positives, the attack rows report detections.}}{8}{table.5}\protected@file@percent }
+\newlabel{tab:perattack}{{5}{8}{Detection on independently generated laboratory traffic. Every flow is labelled by the tool that produced its capture. The benign row reports false positives, the attack rows report detections}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Evaluation on Independently Generated Traffic}{8}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:lab}{{4.4}{8}{Evaluation on Independently Generated Traffic}{subsection.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Per-alert explanation of one flagged SSH brute-force flow. Red bars push toward attack, blue bars toward benign.}}{9}{figure.4}\protected@file@percent }
+\newlabel{fig:shaplocal}{{4}{9}{Per-alert explanation of one flagged SSH brute-force flow. Red bars push toward attack, blue bars toward benign}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Why the Volumetric Attacks Were Missed}{9}{subsection.5.1}\protected@file@percent }
+\citation{engelen2021troubleshooting,rosay2022comprehensive}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Benchmark attacks and laboratory attacks that share a label but not a flow representation.}}{10}{figure.5}\protected@file@percent }
+\newlabel{fig:gap}{{5}{10}{Benchmark attacks and laboratory attacks that share a label but not a flow representation}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Threats to Validity}{10}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:limitations}{{5.2}{10}{Threats to Validity}{subsection.5.2}{}}
+\bibstyle{splncs04}
+\bibdata{refs}
+\bibcite{ahmad2021network}{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Towards Hybrid Detection}{11}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{11}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Acknowledgements.}{11}{section*.7}\protected@file@percent }
+\bibcite{ali2025dlvsml}{2}
+\bibcite{aws_guardduty_suppression}{3}
+\bibcite{breiman2001random}{4}
+\bibcite{engelen2021troubleshooting}{5}
+\bibcite{hochreiter1997lstm}{6}
+\bibcite{holm2014signature}{7}
+\bibcite{khraisat2019survey}{8}
+\bibcite{kimanzi2024deep}{9}
+\bibcite{lecun2015deep}{10}
+\bibcite{lundberg2017shap}{11}
+\bibcite{mohale2025xaiids}{12}
+\bibcite{rosay2022comprehensive}{13}
+\bibcite{sharafaldin2018cicids}{14}
+\gdef \@abspage@last{12}

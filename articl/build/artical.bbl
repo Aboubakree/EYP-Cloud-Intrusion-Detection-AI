@@ -1,0 +1,48 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{ahmad2021network}
+Ahmad, Z., Khan, A.S., Shiang, C.W., Abdullah, J., Ahmad, F.: Network intrusion detection system: A systematic study of machine learning and deep learning approaches. Transactions on Emerging Telecommunications Technologies  \textbf{32}(1),  e4150 (2021). \doi{10.1002/ett.4150}
+
+\bibitem{ali2025dlvsml}
+Ali, M.L., Thakur, K., Schmeelk, S.E., DeBello, J.E., Dragos, D.M.: Deep learning vs.\ machine learning for intrusion detection in computer networks: A comparative study. Applied Sciences  \textbf{15}(4), ~1903 (2025). \doi{10.3390/app15041903}
+
+\bibitem{aws_guardduty_suppression}
+{Amazon Web Services}: Suppression rules in {Amazon GuardDuty}. AWS Documentation (2022), \url{https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html}
+
+\bibitem{breiman2001random}
+Breiman, L.: Random forests. Machine Learning  \textbf{45}(1),  5--32 (2001). \doi{10.1023/A:1010933404324}
+
+\bibitem{engelen2021troubleshooting}
+Engelen, G., Rimmer, V., Joosen, W.: Troubleshooting an intrusion detection dataset: the {CICIDS2017} case study. In: 2021 IEEE Security and Privacy Workshops (SPW). pp. 7--12 (2021). \doi{10.1109/SPW53761.2021.00009}
+
+\bibitem{hochreiter1997lstm}
+Hochreiter, S., Schmidhuber, J.: Long short-term memory. Neural Computation  \textbf{9}(8),  1735--1780 (1997). \doi{10.1162/neco.1997.9.8.1735}
+
+\bibitem{holm2014signature}
+Holm, H.: Signature based intrusion detection for zero-day attacks: (not) a closed chapter? In: Proceedings of the 47th Hawaii International Conference on System Sciences (HICSS). pp. 4895--4904. IEEE (2014). \doi{10.1109/HICSS.2014.600}
+
+\bibitem{khraisat2019survey}
+Khraisat, A., Gondal, I., Vamplew, P., Kamruzzaman, J.: Survey of intrusion detection systems: Techniques, datasets and challenges. Cybersecurity  \textbf{2}(1), ~20 (2019). \doi{10.1186/s42400-019-0038-7}
+
+\bibitem{kimanzi2024deep}
+Kimanzi, R., Kimanga, P., Cherori, D., Gikunda, P.K.: Deep learning algorithms used in intrusion detection systems -- a review. arXiv preprint arXiv:2402.17020 (2024). \doi{10.48550/arXiv.2402.17020}
+
+\bibitem{lecun2015deep}
+LeCun, Y., Bengio, Y., Hinton, G.: Deep learning. Nature  \textbf{521}(7553),  436--444 (2015). \doi{10.1038/nature14539}
+
+\bibitem{lundberg2017shap}
+Lundberg, S.M., Lee, S.I.: A unified approach to interpreting model predictions. In: Advances in Neural Information Processing Systems (NeurIPS). vol.~30, pp. 4765--4774. Curran Associates, Inc. (2017), \url{https://papers.nips.cc/paper_files/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html}
+
+\bibitem{mohale2025xaiids}
+Mohale, V.Z., Obagbuwa, I.C.: A systematic review on the integration of explainable artificial intelligence in intrusion detection systems to enhancing transparency and interpretability in cybersecurity. Frontiers in Artificial Intelligence  \textbf{8},  1526221 (2025). \doi{10.3389/frai.2025.1526221}
+
+\bibitem{rosay2022comprehensive}
+Rosay, A., Cheval, E., Carlier, F., Leroux, P.: Network intrusion detection: A comprehensive analysis of {CIC-IDS2017}. In: Proceedings of the 8th International Conference on Information Systems Security and Privacy (ICISSP). pp. 25--36 (2022). \doi{10.5220/0010774000003120}
+
+\bibitem{sharafaldin2018cicids}
+Sharafaldin, I., Habibi~Lashkari, A., Ghorbani, A.A.: Toward generating a new intrusion detection dataset and intrusion traffic characterization. In: Proceedings of the 4th International Conference on Information Systems Security and Privacy (ICISSP). pp. 108--116. SciTePress (2018). \doi{10.5220/0006639801080116}
+
+\end{thebibliography}
