@@ -1,0 +1,293 @@
+%% ============================================================
+%%  AI-Powered Intrusion Detection System for Cloud Environments
+%%  Master PFE Report - Master Intelligence Artificielle et Cybersécurité
+%%  Author  : KRID Aboubakr
+%%  Supervisor: Prof. Fakhri Yousef
+%%  Year    : 2025-2026
+%%  Compiled with: pdfLaTeX (Overleaf)
+%% ============================================================
+
+\documentclass[12pt, a4paper, oneside]{report}
+
+%% ── Encoding & Language ─────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+%% ── Font: Times New Roman equivalent ────────────────────────
+\usepackage{mathptmx}          % Times New Roman for text + math
+\usepackage{microtype}         % Subtle spacing improvements
+
+%% ── Page Geometry ───────────────────────────────────────────
+\usepackage[
+  a4paper,
+  top=2.5cm, bottom=2.5cm,
+  left=3cm,  right=2.5cm
+]{geometry}
+
+%% ── Line Spacing ────────────────────────────────────────────
+\usepackage{setspace}
+\setstretch{1.5}               % 1.5 line spacing throughout
+
+%% ── Headers & Footers ───────────────────────────────────────
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\leftmark}     % Chapter name in header
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
+
+%% ── Chapter Title Style (boxed, 16pt bold) ──────────────────
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+
+\titleformat{\chapter}[display]
+  {\centering\bfseries\fontsize{16}{20}\selectfont}
+  {}      % No chapter label
+  {0pt}
+  {}
+
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+
+% Section: 12pt bold
+\titleformat{\section}
+  {\normalfont\fontsize{12}{15}\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Subsection: 11pt bold
+\titleformat{\subsection}
+  {\normalfont\fontsize{11}{14}\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% Subsubsection: 11pt normal
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{11}{14}\mdseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{8pt}{2pt}
+
+%% ── Tables ──────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.3}
+
+%% ── Figures ─────────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+
+%% ── Hyperlinks & References ─────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers, sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+%% ── Utilities ───────────────────────────────────────────────
+\usepackage{amsmath, amssymb}
+\usepackage{listings}          % Code listings
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[nohyperlinks]{acronym}
+
+%% ── Code listing style ──────────────────────────────────────
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{teal},
+  captionpos=b
+}
+
+%% ============================================================
+\begin{document}
+
+%% ── Title Page ──────────────────────────────────────────────
+\begin{titlepage}
+  \centering
+  \vspace*{1cm}
+  {\Large\bfseries Université Ibn Tofail, Faculté des Sciences de Kénitra\\[0.5em]
+  Département d'Informatique\\[1em]}
+  \rule{\textwidth}{1pt}\\[1em]
+  {\LARGE\bfseries Mémoire de Fin d'Études\\[0.5em]
+  Master Intelligence Artificielle et Cybersécurité\\[0.3em]
+  (Promotion 2024--2026)}\\[1.5em]
+  \rule{\textwidth}{1pt}\\[2em]
+  {\large\bfseries Sous le thème :}\\[1em]
+  {\LARGE\bfseries AI-Powered Intrusion Detection System\\[0.4em]
+  for Cloud Environments}\\[3em]
+  \begin{tabular}{ll}
+    \textbf{Réalisé par :}   & KRID Aboubakree\\[0.5em]
+    \textbf{Encadré par :}   & Prof. Fakhri Yousef \\[0.5em]
+    \textbf{Année :}         & 2025--2026 \\
+  \end{tabular}
+  \vfill
+  {\large Soutenu le \ldots /\ldots /2026}
+\end{titlepage}
+
+%% ── Front matter ─────────────────────────────────────────────
+\pagenumbering{roman}
+\pagestyle{plain}
+
+% Dedication (optional  fill in)
+\chapter*{Dedication}
+\addcontentsline{toc}{chapter}{Dedication}
+
+I would like to dedicate this work which comes from several months of work, patience and a thirst for learning, to all those who supported me and who accompanied me.
+
+To my beloved parents, There are no words in any language that are sufficient to fully express my thanks and my profound respect for what you have done for me. Thank you for your unbounded love, your infinite sacrifices, your patience and your constant encouragement. You have always believed in me and helped me get through my times of doubt.
+You have instilled in me the meaning of work, the value of persistence and the virtue of humility.
+This thesis is yours more than mine. I hope it will not only make you proud but will also reflect my immeasurable gratitude.
+
+To my entire family, Accept my warmest thanks for your constant encouragement and moral support. Knowing you have my back always makes me confident to continue moving forward to reach my dreams with a strong determination.
+
+To my teachers, Accept my heartfelt thanks for their scientific expertise, scientific rigor, advice and their continued availability. Your teaching gave me knowledge and tools for my current work.
+
+To my classmates and friends, Take all my love and Thanks, for being part of this incredible journey called university experience, you helped me through thick and thin. You make this trip worthwhile.
+
+And, ultimately, to everyone who directly or indirectly helped in making this work accomplished Thank you all, I dedicate this thesis to you.
+
+\newpage
+
+% Acknowledgements
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+First and foremost, I thank \textbf{ALLAH} for having given me the patience, the strength and the courage to reach the end of these long years of study.\\
+I extend my heartfelt gratitude to everyone who contributed to the completion of this thesis, directly or indirectly.\\
+I would like to sincerely thank \textbf{Professor Said TKATEK}, coordinator of the Artificial Intelligence and Cybersecurity Master's programme, for the quality of the training offered and the dedication he always shows to his students.\\
+I am particularly thankful to \textbf{Professor Youssef FAKHRI}, Head of the Computer Science Department and the supervisor of this project, for the trust he placed in me, his availability, his precious advice and his rigorous guidance. His scientific rigour and his encouragement were decisive in accomplishing this research.\\
+I would also like to thank the members of the jury, for the honour they do me in evaluating this thesis, for the interest they take in this research, and for the constructive remarks they will provide.\\
+I thank all the professors of the Master's programme for the quality of their teaching, their availability and their skills, which enriched my whole learning experience.
+And finally, I would like to express all my gratitude to my family, my loved ones and my friends, for the constant support, encouragement and trust they gave me throughout these years. To everyone who helped bring this thesis to completion thank you.
+
+
+\newpage
+
+% Abstract (French)
+\chapter*{Résumé}
+\addcontentsline{toc}{chapter}{Résumé}
+\noindent
+
+Les environnements cloud placent leurs charges de travail les plus critiques derrière un périmètre que peu d'outils de sécurité sont capables d'inspecter : le trafic est-ouest entre machines virtuelles passe souvent sans contrôle, la détection par signatures ne peut pas voir les nouveaux profils d'attaque, et les services managés des grands fournisseurs sont indisponibles et inintelligibles dans les clouds privés. Ce travail propose la conception et valide le c\oe{}ur de détection d'un système de détection d'intrusions ouvert, fondé sur l'apprentissage automatique, destiné à ce contexte. Un laboratoire de deux machines simulant un cloud privé sur un hyperviseur KVM a exécuté de vrais services attaqués par de vrais outils d'attaque, collectant ainsi un trafic comparable à celui utilisé pour l'entraînement. Une sélection préparée et sensible au déséquilibre du jeu de données CICIDS-2017, réduite à 49 caractéristiques de flux, a servi à entraîner hors ligne trois détecteurs  une forêt aléatoire (Random Forest), un CNN et un LSTM  ensuite évalués selon un protocole sans fuite de données. La forêt aléatoire s'est montrée la plus performante (F1 $\approx$ 0,997 ; ROC-AUC $\approx$ 0,9998) à un débit d'environ 45~000 flux par seconde, et la décision associée à chaque alerte est explicitée par SHAP en termes des caractéristiques de flux impliquées. Cependant, le principal résultat de l'évaluation expérimentale sur un trafic de laboratoire généré indépendamment est que le détecteur a manqué toutes les tentatives de balayage de ports et d'inondation SYN, tout en ne générant aucun faux positif et en détectant partiellement une attaque par force brute SSH. La cause en est que ces attaques présentaient des profils de flux mono paquet différents des flux multi paquets portant les mêmes noms dans le jeu de données d'entraînement. Nous documentons, quantifions et expliquons cet écart de généralisation entre benchmark et réalité, et montrons comment il pourrait être atténué par une approche combinant modèle appris et règles.\\[1em]
+
+\noindent\textbf{Mots-clés :} Détection d'intrusions, apprentissage automatique, environnements cloud, apprentissage profond, explicabilité, SHAP, CICIDS-2017, écart de généralisation.
+
+\newpage
+
+% Abstract (English)
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\noindent
+
+Cloud environments locate their high value workloads behind a perimeter that few security tools are capable of looking behind: east-west traffic between VMs often goes unchecked, signature based detection cannot see new attack profiles, and the large providers' managed services are unavailable and unintelligible on private clouds. This work proposes the design and validates the detection core of an open, machine learning based intrusion detection system for this context. A two machine laboratory simulating a private cloud on a KVM host ran real services being attacked by real attack tools, thus collecting traffic comparable to the traffic used for training. A prepared, imbalance aware selection of the CICIDS-2017 dataset reduced to 49 flow features was used to train three ML detectors offline  a Random Forest, a CNN and an LSTM  which were then evaluated using a leakage safe protocol. The Random Forest performed the best (F1 $\approx$ 0.997, ROC-AUC $\approx$ 0.9998) at a rate of about 45{,}000 flows per second, and the decision behind every alert is explainable by a SHAP explanation in terms of the involved flow features. However, the main result of the experimental evaluation on independently generated laboratory traffic was that the detector missed all attempts at port scans and SYN floods, while generating no false positives and partially detecting an SSH brute force attack. The cause is that these attacks had single packet flow profiles differing from the multi packet flows bearing the same names in the training dataset. We document, quantify and explain this benchmark to reality generalization gap, and show how it can potentially be mitigated using a learned plus rule based approach.\\[1em]
+
+\noindent\textbf{Keywords:} Intrusion detection, machine learning, cloud environments, deep learning, explainability, SHAP, CICIDS-2017, generalization gap.
+
+\newpage
+
+%% ── Tables of contents ───────────────────────────────────────
+\tableofcontents
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\newpage
+
+% Acronyms
+\chapter*{List of Acronyms}
+\addcontentsline{toc}{chapter}{List of Acronyms}
+\begin{acronym}[CICIDS]
+  \acro{AI}{Artificial Intelligence}
+  \acro{AE}{Autoencoder}
+  \acro{API}{Application Programming Interface}
+  \acro{CICIDS}{Canadian Institute for Cybersecurity Intrusion Detection System}
+  \acro{CNN}{Convolutional Neural Network}
+  \acro{CPU}{Central Processing Unit}
+  \acro{DDoS}{Distributed Denial of Service}
+  \acro{DL}{Deep Learning}
+  \acro{DNN}{Deep Neural Network}
+  \acro{DoS}{Denial of Service}
+  \acro{FTP}{File Transfer Protocol}
+  \acro{GAN}{Generative Adversarial Network}
+  \acro{GPU}{Graphics Processing Unit}
+  \acro{HTTP}{HyperText Transfer Protocol}
+  \acro{IaaS}{Infrastructure as a Service}
+  \acro{IDS}{Intrusion Detection System}
+  \acro{IoT}{Internet of Things}
+  \acro{IP}{Internet Protocol}
+  \acro{KVM}{Kernel based Virtual Machine}
+  \acro{LLM}{Large Language Model}
+  \acro{LSTM}{Long Short Term Memory}
+  \acro{ML}{Machine Learning}
+  \acro{NIDS}{Network based Intrusion Detection System}
+  \acro{NLP}{Natural Language Processing}
+  \acro{PaaS}{Platform as a Service}
+  \acro{RF}{Random Forest}
+  \acro{RNN}{Recurrent Neural Network}
+  \acro{SaaS}{Software as a Service}
+  \acro{SHAP}{SHapley Additive exPlanations}
+  \acro{SLA}{Service Level Agreement}
+  \acro{SSH}{Secure Shell}
+  \acro{SVM}{Support Vector Machine}
+  \acro{TCP}{Transmission Control Protocol}
+  \acro{VM}{Virtual Machine}
+  \acro{VPC}{Virtual Private Cloud}
+  \acro{XAI}{Explainable Artificial Intelligence}
+\end{acronym}
+
+\newpage
+
+%% ── Main matter ──────────────────────────────────────────────
+\pagenumbering{arabic}
+\pagestyle{fancy}
+
+%% ── General Introduction ─────────────────────────────────────
+\chapter*{General Introduction}
+\addcontentsline{toc}{chapter}{General Introduction}
+\markboth{General Introduction}{}
+
+Modern IT infrastructure is slowly moving away from local systems and towards a shared environment through cloud computing. Cloud infrastructure is typically chosen for its ease of scalability, cost and accessibility. However, this comes at a cost of increasing the attack surface and possible threat vectors. Traditional security tools are built to operate on a single server and aren't able to prevent lateral propagation through a multi tenant cloud platform containing independent workloads.
+
+Intrusion Detection (IDS) has been a critical component of networking and security fields of study. Current implementations often rely on signature based approaches which are inherently reactive. These tools operate by identifying known attacks and alerting when certain criteria are met. As adversaries adopt increasingly sophisticated techniques, the disparity between identified signatures and real attacks continues to grow.
+
+Machine Learning (ML) represents a model shift for intrusion detection. This approach operates by modelling normal traffic from a base line and alerting when deviations happen. In this report we present a novel IDS created with cloud environments in mind. It collects network traffic, trains a model and performs real time intrusion detection through multiple layers. The toolchain is built with explainability at the forefront; providing as much detail as possible to a security analyst performing incident response. A toolchain was developed to create a virtualised laboratory and perform this proof of concept using the CICIDS-2017 dataset, an Ubuntu server and Kali Linux as an attacker machine.
+The following is an overview of the report. 
+Chapter~1 gives a brief overview of cloud computing, its service and deployment models, architecture and the security challenges posed by modern cloud platforms. 
+Chapter~2 provides necessary background information about artificial intelligence and machine learning to put the reader in the right setting while explaining the detection approaches. 
+Chapter~3 talks about the existing Intrusion Detection Systems (IDS), both signature based and deep learning based and points out the gaps that motivated this project. 
+Chapter~4 describes the architecture and implementation choices of the proposed system along with the training methodology. 
+Chapter~5 presents the results of the experimental analysis along with explainability analysis of the proposed system.
+
+
+\newpage
+
+%% ── Chapters (one file per chapter) ─────────────────────────
+\input{sections/chapter_1}
+\input{sections/chapter_2}  
+\input{sections/chapter_3}  
+\input{sections/chapter_4}
+\input{sections/chapter_5}
+
+
+%% ── General Conclusion ───────────────────────────────────────
+\input{sections/conclusion}
+
+
+\appendix
+\input{sections/appendix_A}   % the 79-feature table
+\input{sections/appendix_B}   % the notebook
+\input{sections/appendix_C}   % the scripts
+
+%% ── Bibliography ─────────────────────────────────────────────
+\newpage
+\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+
+\end{document}

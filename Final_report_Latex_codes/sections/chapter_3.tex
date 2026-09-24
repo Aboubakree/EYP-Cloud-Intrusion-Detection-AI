@@ -1,0 +1,154 @@
+%% ============================================================
+%%  Chapter 3 - Intrusion Detection Systems: State of the Art
+%%  All citations verified (DOIs via doi.org / publisher pages).
+%%  Label chap:ids resolves the two pending Chapter~\ref refs
+%%  in chapters 1 and 2.
+%% ============================================================
+
+\chapter{Intrusion Detection Systems}
+\label{chap:ids}
+
+\section{Introduction}
+\label{sec:ids_intro}
+
+An IDS is simply a watching eye. An IDS monitors network traffic or activity on a host and checks for potential threats; it issues an alarm if it finds any but does not block it. So it has to make sound judgments; any alarm raised in response to an incident has zero value if there is a significant delay in delivering it, if the details provided lack context or are simply one in hundreds of non-issues. 
+This chapter provides a review of what’s already available. 
+We examine three main types of solutions; signature based which are most popular in production; the managed detection offered by cloud vendors; and ML algorithms in development. For each we evaluate how well they do against the cloud threats described in Chapter \ref{chap:cloud}. We assume knowledge of the algorithms discussed in Chapter \ref{chap:ai}. Then we summarize the missing links when all three are evaluated; we then explain how the developed system fills those gaps.
+
+% ─────────────────────────────────────────────────────────────
+\section{Two Detection Philosophies}
+\label{sec:ids_philosophies}
+
+But ultimately, there are just two ways for a system to tell that traffic is malicious: Signature-based detection (which in the literature, is often shortened to SIDS.) The system maintains a database of attack patterns that have been previously observed and analyzed, comparing all incoming traffic to that database. If a pattern match occurs, an alarm is issued. 
+
+In their famous survey of intrusion detection techniques, Khraisat et al.\ point out that SIDS has a high accuracy on past intrusions but is inherently limited: if an attack is not present in the signature database, there can be no match, and if there is no match, there can be no alert-in other words, zero-day attacks get through precisely because nobody has ever created signatures for them \cite{khraisat2019survey}. 
+
+The second method is anomaly-based detection (AIDS by the same terminology). This technique builds a profile of normal activity and marks anything that deviates from that profile rather than relying on a catalog of known attacks. The upside is the inverse of SIDS: zero-day attacks are still caught, because you don’t have to know what the attack is, just that it is atypical. The disadvantage is also the inverse of SIDS: anomalous activity but non malicious activity will deviate from the normal profile just as much as an attack would, resulting in those false positives for which anomaly detectors are infamous \cite{khraisat2019survey}. 
+
+In this context, machine learning is the most popular modern method of building that model of normalcy (or, in supervised models, a separate model for each attack type), accordingly, almost all of the papers we survey later will be of this variety. 
+
+SIDS and AIDS aren’t exactly in competition, mature deployments almost always include both. Nevertheless, they both fail, just in different ways, and in ways that inform which type is best for you.
+
+% ─────────────────────────────────────────────────────────────
+\section{Signature-Based Tools in Practice}
+\label{sec:ids_signature}
+
+But the tools in actual use on the majority of networks today? They’re signature based. Snort, a venerable network IDS that dates back to the late 90s and its younger, multi-threaded counterpart Suricata, all function the same way at the base level: a rule set document dictates what the patterns look like, the constraints that can be imposed on the source/destination of traffic, which ports to look on, and content to be seen inside packets, and the engine matches network traffic against thousands of such patterns. 
+It’s an effective method for many of the best reasons: rules are easily readable for an analyst and provide precise context. 
+Known maliciousness can be detected quite rapidly. And the rule making environment is well developed with the open source community, vendors, and security intelligence firms regularly releasing new or updated rule sets.
+
+
+How badly does this approach miss what it doesn't know?
+Holm found out exactly that when he launched 356 serious attacks against a Snort that used an official rule set old enough for 183 of those attacks to have come after it, meaning they were legitimate zero-days to Snort \cite{holm2014signature}. And it works both ways.
+It's not as though Snort was stone deaf, it caught 17\% of zero-day attacks (usually because the new ones looked somewhat similar to ones it knew) \cite{holm2014signature}.
+But after testing how fragile those catches were, Holm concluded with a conservative estimate that the true zero-day detection rate was 8.2\%, while Snort caught 54\% of the attacks the signatures were designed for. In crude terms, nine out of 10 zero-day attacks fly under the radar. And almost one in two known attacks slip past if Snort's rule set has become outdated.
+
+
+On top of that there's an ongoing cost: the signatures don't just exist, they have to be authored by humans. Every variant means a new rule set and rule sets have to be updated and tested against false positives as traffic and malware patterns shift a never-ending specialist job \cite{khraisat2019survey}. Add to that the cost implications of a cloud infrastructure where traffic that flows east-west (Chapter~\ref{chap:cloud}) isn't visible to a perimeter appliance at all and you can see why the "perfect rule set" is a pipe dream.
+
+% ─────────────────────────────────────────────────────────────
+\section{Commercial Cloud-Native Detection}
+\label{sec:ids_commercial}
+
+The main cloud vendors offer their own solution for this issue. AWS GuardDuty, Microsoft Defender for Cloud and Google Security Command Center leverage the cloud vendor’s telemetry, network flow logs, API call data, DNS traffic and apply rules, combined with a certain dose of proprietary ML against it. Within their own infrastructure, these tools are in fact quite effective, have access to sources others can not, and have practically no overhead for configuration.
+Three limitations are relevant to this project:
+
+An organization managing an OpenStack / KVM based private cloud like the one in Section~\ref{sec:deployment_models} has nothing it can even enable, same for the private part of a hybrid environment. The places that potentially need tooling the most are exactly those which these tools do not reach.
+
+Second, opacity. The detection logic isn’t exposed. When GuardDuty generates a finding, the analyst is informed of what triggered the alert, but not why it triggered the alert; when the finding is incorrect, there’s no model to investigate or alter. 
+Indeed, even AWS’s documentation recognizes this workflow dynamic by offering suppression rules-a feature to automatically archive findings the user has determined to be expected behavior instead of a threat \cite{aws_guardduty_suppression}. 
+Suppression deals with the symptoms; it conceals false positives, but doesn’t justify them or resolve them.
+
+The third follows on from the second: the effort of tuning. Training on generically behaving activity often flags activities which should happen in a given environment: scheduled scans, NAT gateway traffic, CI/CD pipelines, etc. Each of those leads to analyst effort until a suppression rule takes effect. 
+All that doesn’t mean those commercial products are bad, though. They mean that they are neither accessible in a private cloud nor transparent anywhere else, the very two things that this project addresses by attempting to provide an open-source alternative.
+
+
+% ─────────────────────────────────────────────────────────────
+\section{Machine Learning Approaches in Research}
+\label{sec:ids_ml}
+
+We have been exploring and demonstrating the application of learning algorithms for intrusion detection for over two decades and largely the rationale for such research has been to try to overcome the signature trap. There is a great deal of research and we can organize it broadly around paradigms, restricting the summary below to that which each paradigm can demonstrably achieve; the underlying workings of the learning algorithms can be found in Chapter~\ref{chap:ai}. Table~\ref{tab:ids_taxonomy} gives the overview.
+
+\begin{table}[H]
+  \centering
+  \caption{Families of ML/DL approaches in academic IDS research.}
+  \label{tab:ids_taxonomy}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabularx}{\textwidth}{lXX}
+    \toprule
+    \textbf{Family} & \textbf{Representative techniques} & \textbf{Demonstrated strengths / recurring limits} \\
+    \midrule
+    Classical supervised ML
+      & Decision Trees, Random Forest, SVM, k-NN
+      & Excellent accuracy on flow features; fast to train and run;
+        depends on engineered features and labelled data \\
+    \midrule
+    Supervised deep learning
+      & DNN, CNN, RNN/LSTM, hybrid CNN--LSTM
+      & Learns features from raw or minimally processed input;
+        strong on sequential attack patterns; data- and compute-hungry \\
+    \midrule
+    Unsupervised / generative
+      & Autoencoders, VAE, GAN
+      & No attack labels needed, can surface novel attacks;
+        higher false-positive rates than supervised models \\
+    \midrule
+    Emerging directions
+      & Transformers, LLMs, few-shot / meta-learning
+      & Model long-range dependencies; address label scarcity;
+        interpretability and computational cost remain open problems \\
+    \bottomrule
+  \end{tabularx}
+\end{table}
+ 
+
+\subsection{Classical machine learning}
+\label{sec:ids_classical}
+
+The most established and still strongest category of work consists of training classical models, like Random Forest, SVM, k-NN, or decision trees, on the same flow-level features produced by CICFlowMeter. In this work, results on benchmark data are solid: the controlled study in Ali et al.\ mentioned earlier in Section~\ref{sec:classical_ml} already showed tree-based models outperforming the deep learning counterparts on the exact same classification task \cite{ali2025dlvsml}. Systematic surveys on this problem set also arrive at a similar conclusion: classical approaches do very well given appropriate features, and their sole major dependency is precisely those very features and availability of labeled data \cite{ahmad2021network}. Novelty generalization is their weaker point, and a model trained on yesterday's attacks doesn't particularly have reasons to identify tomorrow's.
+
+For this project, that trade-off works in our favour. The CICIDS-2017 features are already computed and the data already labelled, so the expensive part is done. A Random Forest baseline is cheap to train, fast at inference, and transparent enough for its output to feed an explainability layer. That is why Chapter~\ref{chap:cloud} and Chapter~\ref{chap:ai} already pointed to it as our base model.
+
+\subsection{Supervised deep learning}
+\label{sec:ids_deep}
+
+The latest waves to crash onto the shore of intrusion detection come on the back of the promise made in Section~\ref{sec:deep_learning} of having to bother with feature engineering never again, learn it all direct from the data. We get the usual candidates in the survey papers of these models; the deep feed forward networks, the CNNs who learn images of flow matrices or byte streams of the payload, the LSTMs working on flow sequences and a variety of hybrid approaches combining the spatial awareness of a CNN with the temporal memory of a LSTM \cite{kimanzi2024deep, ahmad2021network}. The performance on the standard datasets such as the CICIDS-2017 family are high, not dissimilarly to the well established approaches. Of course the familiar worries of Chapter~\ref{chap:ai} appear enormous volumes of labelled training data, massive GPU needs, non interpretable results \cite{ahmad2021network}. And inevitably when they compare there results with ensembles there is only marginal gains in accuracy \cite{ali2025dlvsml} and little advantage for there models over classic methods for flow table features except for sequential type attacks (scans and low rate flooding) .
+
+\subsection{Unsupervised and generative approaches}
+\label{sec:ids_unsupervised}
+
+A different thread drops the labels altogether. Autoencoders are trained to compress and reconstruct normal traffic. If a flow is badly reconstructed by the model, it must, by definition, be unlike anything that the model saw during training and is therefore declared abnormal. 
+Generative adversarial networks (GANs) go even further: the model learns explicitly what constitutes the distribution of normal behaviour \cite{kimanzi2024deep}. 
+Once you have read Section~\ref{sec:ids_signature}, the benefit should be apparent: none of these techniques assumes foreknowledge of the attack, so these research communities offer the most straightforward solutions to zero-day threats.
+
+The cost is one which Chapter~\ref{chap:ai} had already highlighted for unsupervised learning in general. “Different from normal” is less strong evidence than “similar to a known attack”, and studies that compare supervised and unsupervised models on intrusion datasets found the unsupervised models pay a price for their flexibility by delivering lower precision and higher false alarms compared to their supervised cousins \cite{khoei2023comparative}. In practice each of those false alarms has to be triaged by an analyst.
+
+\subsection{Emerging directions}
+\label{sec:ids_emerging}
+
+Two frontier directions are worth a brief call-out here - in part for completeness, in part to illustrate what this project does not try to achieve. The role of transformers and of large language models (LLMs) in NLP is making an impact into the threat-detection space. A recent review from Kheddar discusses how attention based models, BERT based encoders, GPT based generators, and vision transformers were re-purposed for intrusion detection, showing great potential in modelling long-range dependencies in traffic, and highlighting challenges related to explainability, scale and adaptability in response to evolving attacks \cite{kheddar2025transformers}.
+
+Alternatively, other work takes an offensive stance and tries to attack directly the issue of scarcity in labels. Few-shot and meta-learning models are aimed to detect an attack class in presence of only a few examples of the attack instead of thousands of examples, and methods such as the framework NERO combine neural algorithmic reasoning and metric-based meta-learning for the identification of zero-day attacks in IoT traffic under exactly those low-label conditions \cite{cevallos2024nero}.
+
+Both of those are valid and interesting context, neither of which we follow here, they trade the problems we do care about (transparency, deployability on humble hardware) for abilities we don't need.
+% ─────────────────────────────────────────────────────────────
+\section{Gap Analysis}
+\label{sec:ids_gaps}
+
+Set the three families beside each other, and you notice four cracks that branch from them. Each one is rooted in something concrete, either in this chapter or in the two before it.
+
+\textbf{Gap 1: novel attacks defeat the deployed tools.} The actually production-used detection tools are the signature engines, and the data show that they miss the large majority of the attacks for which they don’t have any rule \cite{holm2014signature}. Learning-based detection is supposed to address this in principle, but usually just within research papers, not in operational tools.
+
+\textbf{Gap 2: nothing to deploy in a private cloud.} The commercial detection services only run inside their own platform, and they reveal nothing about their logic anywhere. For the OpenStack or KVM operator of Section~\ref{sec:deployment_models}, and the private part of any hybrid deployment, there’s nothing equivalent in turn-key fashion, and the environments this project targets are precisely these.
+
+\textbf{Gap 3: the accurate models are the opaque ones.} Throughout the body of work, detection performance and interpretability pull in opposing directions; the trend Lundberg and Lee noted in general \cite{lundberg2017shap} and which Mohale and Obagbuwa illustrate in the case of IDS, whereby black-box alerts undermine the trust that the system, whose alerts they are, exists to support \cite{mohale2025xaiids}. Few of the published systems present the explanation alongside the alert.
+
+\textbf{Gap 4: evaluation stops at the benchmark.} As described above, virtually all the papers studied perform evaluation on pre-extracted static feature files, with a CSV to train, another CSV for the holdout, and reporting a single score \cite{ahmad2021network, ali2025dlvsml}. That is the proper way to compare models, but an actual IDS has a harder job: processing a live stream of traffic, extracting features on the fly and classifying within latency limits. This last part is where most papers stop, leaving it as future work.
+
+The four gaps are being closed by the system that follows this chapter: an anomaly-capable ML detector (Gap 1); open and runnable on commodity virtualisation (Gap 2); with a SHAP explanation linked to each alert (Gap 3); and, for Gap 4, an evaluation that deliberately goes beyond the static benchmark to independently generated traffic, with the live-pipeline deployment designed and its feasibility established rather than merely assumed.
+
+% ─────────────────────────────────────────────────────────────
+\section{Summary}
+\label{sec:ids_summary}
+
+Signature-based systems remain the most deployed forms of intrusion detection, and they are fundamentally blind to anything that they haven't already observed, hence measured zero-day detection rates in the single digits to high teens of percent. Cloud provider-managed services do a reasonable job within their own ecosystem, are absent from private infrastructure, and provide no transparency at all. Academic ML reduces the gap on paper ensemble methods, for instance, remain competitive with deep networks on flow data but it preserves the black-box problem and has, largely, never left the established benchmarks. We have thus found four key shortcomings: novelty, deployability, explainability, and liveness, which we deal with in detail in Chapter~4.

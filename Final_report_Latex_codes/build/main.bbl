@@ -1,0 +1,208 @@
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Breiman(2001)]{breiman2001random}
+Leo Breiman.
+\newblock Random forests.
+\newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
+\newblock \doi{10.1023/A:1010933404324}.
+
+\bibitem[{Amazon Web Services}(2006)]{aws_ec2_announcement2006}
+{Amazon Web Services}.
+\newblock Announcing {Amazon Elastic Compute Cloud} ({Amazon EC2}) - beta.
+\newblock AWS What's New, 2006.
+\newblock URL \url{https://aws.amazon.com/about-aws/whats-new/2006/08/24/announcing-amazon-elastic-compute-cloud-amazon-ec2---beta/}.
+
+\bibitem[Mell and Grance(2011)]{mell2011nist}
+Peter Mell and Timothy Grance.
+\newblock The {NIST} definition of cloud computing.
+\newblock Technical Report Special Publication 800-145, National Institute of Standards and Technology, Gaithersburg, MD, September 2011.
+\newblock URL \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf}.
+
+\bibitem[Liu et~al.(2011)Liu, Tong, Mao, Bohn, Messina, Badger, and Leaf]{nist2011architecture}
+Fang Liu, Jin Tong, Jian Mao, Robert Bohn, John Messina, Lee Badger, and Dawn Leaf.
+\newblock {NIST} cloud computing reference architecture.
+\newblock Technical Report Special Publication 500-292, National Institute of Standards and Technology, Gaithersburg, MD, September 2011.
+\newblock URL \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-292.pdf}.
+
+\bibitem[{National Vulnerability Database}(2015)]{crowdstrike_venom2015}
+{National Vulnerability Database}.
+\newblock {CVE-2015-3456} detail ({VENOM} vulnerability).
+\newblock NIST National Vulnerability Database, 2015.
+\newblock URL \url{https://nvd.nist.gov/vuln/detail/CVE-2015-3456}.
+\newblock Originally discovered and disclosed by Jason Geffner, CrowdStrike, May 2015.
+
+\bibitem[Kfoury et~al.(2024)Kfoury, Choueiri, Mazloum, AlSabeh, Gomez, and Crichigno]{kfoury2024smartnics}
+Elie Kfoury, Samia Choueiri, Ali Mazloum, Ali AlSabeh, Jose Gomez, and Jorge Crichigno.
+\newblock A comprehensive survey on {SmartNICs}: Architectures, development models, applications, and research directions.
+\newblock arXiv preprint arXiv:2405.09499, 2024.
+\newblock URL \url{https://arxiv.org/abs/2405.09499}.
+\newblock Submitted to IEEE for possible publication.
+
+\bibitem[Alouffi et~al.(2021)Alouffi, Hasnain, Alharbi, Alosaimi, Alyami, and Ayaz]{alouffi2021systematic}
+Bader Alouffi, Muhammad Hasnain, Abdullah Alharbi, Wael Alosaimi, Hashem Alyami, and Muhammad Ayaz.
+\newblock A systematic literature review on cloud computing security: Threats and mitigation strategies.
+\newblock \emph{IEEE Access}, 9:\penalty0 57792--57807, 2021.
+\newblock \doi{10.1109/ACCESS.2021.3073203}.
+
+\bibitem[Tabrizchi and Kuchaki~Rafsanjani(2020)]{tabrizchi2020survey}
+Hamed Tabrizchi and Marjan Kuchaki~Rafsanjani.
+\newblock A survey on security challenges in cloud computing: Issues, threats, and solutions.
+\newblock \emph{The Journal of Supercomputing}, 76\penalty0 (12):\penalty0 9493--9532, 2020.
+\newblock \doi{10.1007/s11227-019-03076-1}.
+
+\bibitem[Nadeem et~al.(2021)Nadeem, Arshad, Riaz, Band, and Mosavi]{nadeem2021intercept}
+Muhammad Nadeem, Ali Arshad, Saman Riaz, Shahab~S. Band, and Amir Mosavi.
+\newblock Intercept the cloud network from brute force and {DDoS} attacks via intrusion detection and prevention system.
+\newblock \emph{IEEE Access}, 9:\penalty0 152300--152309, 2021.
+\newblock \doi{10.1109/ACCESS.2021.3126535}.
+
+\bibitem[Agrawal and Tapaswi(2019)]{agrawal2019ddos}
+Neha Agrawal and Shashikala Tapaswi.
+\newblock Defense mechanisms against {DDoS} attacks in a cloud computing environment: State-of-the-art and research challenges.
+\newblock \emph{IEEE Communications Surveys \& Tutorials}, 21\penalty0 (4):\penalty0 3769--3795, 2019.
+\newblock \doi{10.1109/COMST.2019.2934468}.
+
+\bibitem[{MITRE Corporation}(2024)]{mitre_attack_cloud}
+{MITRE Corporation}.
+\newblock {MITRE ATT\&CK} matrix for enterprise - cloud.
+\newblock MITRE ATT\&CK Knowledge Base, 2024.
+\newblock URL \url{https://attack.mitre.org/matrices/enterprise/cloud/}.
+
+\bibitem[Alloghani et~al.(2020)Alloghani, Al-Jumeily, Mustafina, Hussain, and Aljaaf]{alloghani2020systematic}
+Mohamed Alloghani, Dhiya Al-Jumeily, Jamila Mustafina, Abir Hussain, and Ahmed~J. Aljaaf.
+\newblock A systematic review on supervised and unsupervised machine learning algorithms for data science.
+\newblock In M.~Berry, A.~Mohamed, and B.~Yap, editors, \emph{Supervised and Unsupervised Learning for Data Science}, Unsupervised and Semi-Supervised Learning, pages 3--21. Springer, Cham, 2020.
+\newblock \doi{10.1007/978-3-030-22475-2_1}.
+
+\bibitem[Sharafaldin et~al.(2018)Sharafaldin, Habibi~Lashkari, and Ghorbani]{sharafaldin2018cicids}
+Iman Sharafaldin, Arash Habibi~Lashkari, and Ali~A. Ghorbani.
+\newblock Toward generating a new intrusion detection dataset and intrusion traffic characterization.
+\newblock In \emph{Proceedings of the 4th International Conference on Information Systems Security and Privacy (ICISSP)}, pages 108--116. SciTePress, 2018.
+\newblock \doi{10.5220/0006639801080116}.
+
+\bibitem[Talaei~Khoei and Kaabouch(2023)]{khoei2023comparative}
+Tala Talaei~Khoei and Naima Kaabouch.
+\newblock A comparative analysis of supervised and unsupervised models for detecting attacks on the intrusion detection systems.
+\newblock \emph{Information}, 14\penalty0 (2):\penalty0 103, 2023.
+\newblock \doi{10.3390/info14020103}.
+
+\bibitem[Mvula et~al.(2024)Mvula, Branco, Jourdan, and Viktor]{mvula2024semisupervised}
+Paul~Kiyambu Mvula, Paula Branco, Guy-Vincent Jourdan, and Herna~Lydia Viktor.
+\newblock A survey on the applications of semi-supervised learning to cyber-security.
+\newblock \emph{ACM Computing Surveys}, 56\penalty0 (10):\penalty0 253, 2024.
+\newblock \doi{10.1145/3657647}.
+
+\bibitem[Umer et~al.(2022)Umer, Junejo, Jilani, and Mathur]{umer2022ics}
+Muhammad~Azmi Umer, Khurum~Nazir Junejo, Muhammad~Taha Jilani, and Aditya~P. Mathur.
+\newblock Machine learning for intrusion detection in industrial control systems: Applications, challenges, and recommendations.
+\newblock \emph{International Journal of Critical Infrastructure Protection}, 38:\penalty0 100516, 2022.
+\newblock \doi{10.1016/j.ijcip.2022.100516}.
+
+\bibitem[Ali et~al.(2025)Ali, Thakur, Schmeelk, DeBello, and Dragos]{ali2025dlvsml}
+Md~Liakat Ali, Kutub Thakur, Suzanna~E. Schmeelk, Joan~E. DeBello, and Denise~M. Dragos.
+\newblock Deep learning vs.\ machine learning for intrusion detection in computer networks: A comparative study.
+\newblock \emph{Applied Sciences}, 15\penalty0 (4):\penalty0 1903, 2025.
+\newblock \doi{10.3390/app15041903}.
+
+\bibitem[Quinlan(1986)]{quinlan1986id3}
+J.~Ross Quinlan.
+\newblock Induction of decision trees.
+\newblock \emph{Machine Learning}, 1\penalty0 (1):\penalty0 81--106, 1986.
+\newblock \doi{10.1007/BF00116251}.
+
+\bibitem[Cortes and Vapnik(1995)]{cortes1995svm}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock \emph{Machine Learning}, 20\penalty0 (3):\penalty0 273--297, 1995.
+\newblock \doi{10.1007/BF00994018}.
+
+\bibitem[Cover and Hart(1967)]{cover1967knn}
+Thomas~M. Cover and Peter~E. Hart.
+\newblock Nearest neighbor pattern classification.
+\newblock \emph{IEEE Transactions on Information Theory}, 13\penalty0 (1):\penalty0 21--27, 1967.
+\newblock \doi{10.1109/TIT.1967.1053964}.
+
+\bibitem[LeCun et~al.(2015)LeCun, Bengio, and Hinton]{lecun2015deep}
+Yann LeCun, Yoshua Bengio, and Geoffrey Hinton.
+\newblock Deep learning.
+\newblock \emph{Nature}, 521\penalty0 (7553):\penalty0 436--444, 2015.
+\newblock \doi{10.1038/nature14539}.
+
+\bibitem[Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and Hinton]{krizhevsky2012imagenet}
+Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~25, pages 1097--1105. Curran Associates, Inc., 2012.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html}.
+
+\bibitem[O'Shea and Nash(2015)]{oshea2015cnn}
+Keiron O'Shea and Ryan Nash.
+\newblock An introduction to convolutional neural networks.
+\newblock arXiv preprint arXiv:1511.08458, 2015.
+\newblock URL \url{https://arxiv.org/abs/1511.08458}.
+
+\bibitem[Hochreiter and Schmidhuber(1997)]{hochreiter1997lstm}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock \emph{Neural Computation}, 9\penalty0 (8):\penalty0 1735--1780, 1997.
+\newblock \doi{10.1162/neco.1997.9.8.1735}.
+
+\bibitem[Ahmad et~al.(2021)Ahmad, Khan, Shiang, Abdullah, and Ahmad]{ahmad2021network}
+Zeeshan Ahmad, Adnan~Shahid Khan, Cheah~Wai Shiang, Johari Abdullah, and Farhan Ahmad.
+\newblock Network intrusion detection system: A systematic study of machine learning and deep learning approaches.
+\newblock \emph{Transactions on Emerging Telecommunications Technologies}, 32\penalty0 (1):\penalty0 e4150, 2021.
+\newblock \doi{10.1002/ett.4150}.
+
+\bibitem[Lundberg and Lee(2017)]{lundberg2017shap}
+Scott~M. Lundberg and Su-In Lee.
+\newblock A unified approach to interpreting model predictions.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS)}, volume~30, pages 4765--4774. Curran Associates, Inc., 2017.
+\newblock URL \url{https://papers.nips.cc/paper_files/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html}.
+
+\bibitem[Mohale and Obagbuwa(2025)]{mohale2025xaiids}
+Vincent~Zibi Mohale and Ibidun~Christiana Obagbuwa.
+\newblock A systematic review on the integration of explainable artificial intelligence in intrusion detection systems to enhancing transparency and interpretability in cybersecurity.
+\newblock \emph{Frontiers in Artificial Intelligence}, 8:\penalty0 1526221, 2025.
+\newblock \doi{10.3389/frai.2025.1526221}.
+
+\bibitem[Khraisat et~al.(2019)Khraisat, Gondal, Vamplew, and Kamruzzaman]{khraisat2019survey}
+Ansam Khraisat, Iqbal Gondal, Peter Vamplew, and Joarder Kamruzzaman.
+\newblock Survey of intrusion detection systems: Techniques, datasets and challenges.
+\newblock \emph{Cybersecurity}, 2\penalty0 (1):\penalty0 20, 2019.
+\newblock \doi{10.1186/s42400-019-0038-7}.
+
+\bibitem[Holm(2014)]{holm2014signature}
+Hannes Holm.
+\newblock Signature based intrusion detection for zero-day attacks: (not) a closed chapter?
+\newblock In \emph{Proceedings of the 47th Hawaii International Conference on System Sciences (HICSS)}, pages 4895--4904. IEEE, 2014.
+\newblock \doi{10.1109/HICSS.2014.600}.
+
+\bibitem[{Amazon Web Services}(2022)]{aws_guardduty_suppression}
+{Amazon Web Services}.
+\newblock Suppression rules in {Amazon GuardDuty}.
+\newblock AWS Documentation, 2022.
+\newblock URL \url{https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html}.
+
+\bibitem[Kimanzi et~al.(2024)Kimanzi, Kimanga, Cherori, and Gikunda]{kimanzi2024deep}
+Richard Kimanzi, Peter Kimanga, Dedan Cherori, and Patrick~K. Gikunda.
+\newblock Deep learning algorithms used in intrusion detection systems -- a review.
+\newblock arXiv preprint arXiv:2402.17020, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.17020}.
+
+\bibitem[Kheddar(2025)]{kheddar2025transformers}
+Hamza Kheddar.
+\newblock Transformers and large language models for efficient intrusion detection systems: A comprehensive survey.
+\newblock \emph{Information Fusion}, 124:\penalty0 103347, 2025.
+\newblock \doi{10.1016/j.inffus.2025.103347}.
+
+\bibitem[Cevallos~M. et~al.(2024)Cevallos~M., Rizzardi, Sicari, and Coen~Porisini]{cevallos2024nero}
+Jean~F. Cevallos~M., Alessandra Rizzardi, Sabrina Sicari, and Alberto Coen~Porisini.
+\newblock {NERO}: {NEural} algorithmic reasoning for {zeRO}-day attack detection in the {IoT}: A hybrid approach.
+\newblock \emph{Computers \& Security}, 142:\penalty0 103898, 2024.
+\newblock \doi{10.1016/j.cose.2024.103898}.
+
+\end{thebibliography}

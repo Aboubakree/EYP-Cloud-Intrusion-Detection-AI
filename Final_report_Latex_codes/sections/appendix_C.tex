@@ -1,0 +1,65 @@
+%% ============================================================
+%%  Appendix C - Detection and Evaluation Scripts
+%%  Pointer page describing the scripts, with ONE short
+%%  representative excerpt (the feature-reconciliation logic,
+%%  since that is the scientifically relevant part).
+%%  Requires \appendix before \input, and \usepackage{listings}.
+%% ============================================================
+
+\chapter{Detection and Evaluation Scripts}
+\label{app:scripts}
+
+The trained model was validated against some independently generated laboratory traffic (Section~\ref{sec:results_validation}) using a small group of Python scripts. Once again the whole source for these can be found with the digital submission instead of being printed here, here I explain each script and include the one snippet of logic that the results depend on  reconciling the featureisation of the live traffic with what the model expected.
+
+\section{Scripts}
+\label{app:scripts_list}
+
+\begin{center}
+\begin{tabular}{ll}
+  \toprule
+  \textbf{Script} & \textbf{Purpose} \\
+  \midrule
+  \texttt{evaluate\_per\_attack.py}   & Produces the per-attack detection table (Table~\ref{tab:per-attack-results}). \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+All scripts will carry out the exact same sequence: Read CICFlowMeter output. Rename the columns to those expected in the training process. Engineer features exactly as in training.
+Check that all of the needed features exist.
+Only if all required features exist will the model be used. The check is intentional: if a column is missing or named incorrectly, the script will fail rather than feeding something unexpected to the model.
+
+\section{Feature reconciliation}
+\label{app:scripts_excerpt}
+
+The only bit of this script that should not be trivial, is the mapping used to align the existing CICFlowMeter output with the feature names that the trained model expects to be in use, as the training files were generated using a previous release of the software, and some columns have since had their names changed when calculating the same value. This mapping function accounts for that discrepancy:
+
+\begin{lstlisting}[language=Python, basicstyle=\ttfamily\small, breaklines=true, columns=fullflexible]
+# CICFlowMeter (current release) -> CICIDS-2017 training names.
+# Same underlying quantities; only the column labels differ.
+RENAME_V4_TO_TRAIN = {
+    "Dst Port":                    "Destination Port",
+    "Total Fwd Packet":            "Total Fwd Packets",
+    "Total Bwd packets":           "Total Backward Packets",
+    "Total Length of Fwd Packet":  "Total Length of Fwd Packets",
+    "Total Length of Bwd Packet":  "Total Length of Bwd Packets",
+    "Packet Length Min":           "Min Packet Length",
+    "Packet Length Max":           "Max Packet Length",
+    "FWD Init Win Bytes":          "Init_Win_bytes_forward",
+    "Bwd Init Win Bytes":          "Init_Win_bytes_backward",
+    "Fwd Act Data Pkts":           "act_data_pkt_fwd",
+    "Fwd Seg Size Min":            "min_seg_size_forward",
+}
+\end{lstlisting}
+
+\noindent After renaming, the three engineered features are recomputed from the aligned columns, and the resulting set is checked against the frozen feature order stored in \texttt{model\_metadata.json} before any prediction is made.
+
+\section{Availability}
+\label{app:scripts_availability}
+
+The full source of both scripts is available in the project repository accompanying this thesis:
+
+\begin{center}
+\texttt{[https://github.com/\textit{Aboubakree}/\textit{EYP-Cloud-Intrusion-Detection-AI}]}
+\end{center}
+
+\noindent and in the digital submission archive.

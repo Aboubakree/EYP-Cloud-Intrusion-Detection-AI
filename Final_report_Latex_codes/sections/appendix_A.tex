@@ -1,0 +1,274 @@
+%% ============================================================
+%%  Appendix A - CICFlowMeter Feature Reference
+%%  The complete 79-feature list, grouped by family, with a
+%%  short definition of each. Referenced from Chapter 5, §5.4.
+%%  Definitions follow how CICFlowMeter computes each quantity;
+%%  the handful of bulk/subflow features are defined from the
+%%  tool's computation, as their official documentation is terse.
+%%  Include with \appendix then \input, or \input directly after
+%%  a \appendix command in main.tex.
+%% ============================================================
+
+\chapter{CICFlowMeter Feature Reference}
+\label{app:features}
+
+This appendix shows the all 79 features calculated by CICFlowMeter that were included, after variance filtering, in the detector presented in Chapter~\ref{chap:results}. The features are organized by family to allow a quicker comparison of their nature. Note that the directional terminology used,forward andbackward, correspond to the direction defined by CICFlowMeter (original direction of flow being from source to destination,andits reverse), while IAT refers to inter arrival time.
+
+% ── Identifiers ──────────────────────────────────────────────
+\section{Flow identifiers}
+\label{app:feat_id}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Flow ID          & Composite identifier of the flow (endpoints, ports, protocol). \\
+  Source IP        & IP address that sent the first packet. \\
+  Source Port      & Transport port that sent the first packet. \\
+  Destination IP   & IP address that received the first packet. \\
+  Destination Port & Transport port that received the first packet. \\
+  Protocol         & Transport protocol number (e.g.\ 6 for TCP, 17 for UDP). \\
+  Timestamp        & Time at which the flow began. \\
+  \bottomrule
+\end{tabularx}
+
+\vspace{1em}
+\noindent\textit{Note.} The identifier fields locate a flow but are not used as learning features by the detector; the model is trained to recognise attacks by traffic shape, not by address or port memorisation.
+
+% ── Packet & byte counts ─────────────────────────────────────
+\section{Packet and byte counts}
+\label{app:feat_counts}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Total Fwd Packets            & Number of packets in the forward direction. \\
+  Total Backward Packets       & Number of packets in the backward direction. \\
+  Total Length of Fwd Packets  & Sum of forward packet sizes (bytes). \\
+  Total Length of Bwd Packets  & Sum of backward packet sizes (bytes). \\
+  Subflow Fwd Packets          & Average number of forward packets per sub-flow. \\
+  Subflow Fwd Bytes            & Average number of forward bytes per sub-flow. \\
+  Subflow Bwd Packets          & Average number of backward packets per sub-flow. \\
+  Subflow Bwd Bytes            & Average number of backward bytes per sub-flow. \\
+  act\_data\_pkt\_fwd          & Number of forward packets carrying at least one byte of payload. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Packet length statistics ─────────────────────────────────
+\section{Packet length statistics}
+\label{app:feat_lengths}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Fwd Packet Length Max   & Largest forward packet (bytes). \\
+  Fwd Packet Length Min   & Smallest forward packet (bytes). \\
+  Fwd Packet Length Mean  & Mean forward packet size. \\
+  Fwd Packet Length Std   & Standard deviation of forward packet size. \\
+  Bwd Packet Length Max   & Largest backward packet (bytes). \\
+  Bwd Packet Length Min   & Smallest backward packet (bytes). \\
+  Bwd Packet Length Mean  & Mean backward packet size. \\
+  Bwd Packet Length Std   & Standard deviation of backward packet size. \\
+  Min Packet Length       & Smallest packet in the flow, either direction. \\
+  Max Packet Length       & Largest packet in the flow, either direction. \\
+  Packet Length Mean      & Mean packet size over the whole flow. \\
+  Packet Length Std       & Standard deviation of packet size over the flow. \\
+  Packet Length Variance  & Variance of packet size over the flow. \\
+  Average Packet Size     & Mean size of all packets in the flow. \\
+  Avg Fwd Segment Size    & Mean forward segment (payload) size. \\
+  Avg Bwd Segment Size    & Mean backward segment (payload) size. \\
+  min\_seg\_size\_forward  & Minimum forward segment size observed. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Timing ───────────────────────────────────────────────────
+\section{Flow timing and inter-arrival times}
+\label{app:feat_timing}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Flow Duration   & Total lifetime of the flow (microseconds). \\
+  Flow IAT Mean   & Mean gap between successive packets in the flow. \\
+  Flow IAT Std    & Standard deviation of that gap. \\
+  Flow IAT Max    & Largest gap between successive packets. \\
+  Flow IAT Min    & Smallest gap between successive packets. \\
+  Fwd IAT Total   & Total time between forward packets. \\
+  Fwd IAT Mean    & Mean gap between forward packets. \\
+  Fwd IAT Std     & Standard deviation of the forward gap. \\
+  Fwd IAT Max     & Largest gap between forward packets. \\
+  Fwd IAT Min     & Smallest gap between forward packets. \\
+  Bwd IAT Total   & Total time between backward packets. \\
+  Bwd IAT Mean    & Mean gap between backward packets. \\
+  Bwd IAT Std     & Standard deviation of the backward gap. \\
+  Bwd IAT Max     & Largest gap between backward packets. \\
+  Bwd IAT Min     & Smallest gap between backward packets. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Active/idle ──────────────────────────────────────────────
+\section{Active and idle periods}
+\label{app:feat_activeidle}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Active Mean & Mean time the flow was active before going idle. \\
+  Active Std  & Standard deviation of active periods. \\
+  Active Max  & Longest active period. \\
+  Active Min  & Shortest active period. \\
+  Idle Mean   & Mean time the flow was idle before becoming active again. \\
+  Idle Std    & Standard deviation of idle periods. \\
+  Idle Max    & Longest idle period. \\
+  Idle Min    & Shortest idle period. \\
+  \bottomrule
+\end{tabularx}
+
+% ── TCP flags ────────────────────────────────────────────────
+\section{TCP flag counts}
+\label{app:feat_flags}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Fwd PSH Flags   & Count of PSH flags on forward packets. \\
+  Bwd PSH Flags   & Count of PSH flags on backward packets. \\
+  Fwd URG Flags   & Count of URG flags on forward packets. \\
+  Bwd URG Flags   & Count of URG flags on backward packets. \\
+  FIN Flag Count  & Count of FIN flags in the flow. \\
+  SYN Flag Count  & Count of SYN flags in the flow. \\
+  RST Flag Count  & Count of RST flags in the flow. \\
+  PSH Flag Count  & Count of PSH flags in the flow. \\
+  ACK Flag Count  & Count of ACK flags in the flow. \\
+  URG Flag Count  & Count of URG flags in the flow. \\
+  CWE Flag Count  & Count of CWR (congestion-window-reduced) flags in the flow. \\
+  ECE Flag Count  & Count of ECE (ECN-echo) flags in the flow. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Header & rates ───────────────────────────────────────────
+\section{Header lengths, rates, and ratios}
+\label{app:feat_rates}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Fwd Header Length        & Total bytes used by forward packet headers. \\
+  Bwd Header Length        & Total bytes used by backward packet headers. \\
+  Flow Bytes/s             & Bytes per second over the flow's lifetime. \\
+  Flow Packets/s           & Packets per second over the flow's lifetime. \\
+  Fwd Packets/s            & Forward packets per second. \\
+  Bwd Packets/s            & Backward packets per second. \\
+  Down/Up Ratio            & Ratio of backward (download) to forward (upload) traffic. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Bulk & window ────────────────────────────────────────────
+\section{Bulk-transfer and connection-window features}
+\label{app:feat_bulk}
+
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  Fwd Avg Bytes/Bulk    & Average bytes per forward bulk-transfer burst. \\
+  Fwd Avg Packets/Bulk  & Average packets per forward bulk-transfer burst. \\
+  Fwd Avg Bulk Rate     & Average rate of forward bulk transfer. \\
+  Bwd Avg Bytes/Bulk    & Average bytes per backward bulk-transfer burst. \\
+  Bwd Avg Packets/Bulk  & Average packets per backward bulk-transfer burst. \\
+  Bwd Avg Bulk Rate     & Average rate of backward bulk transfer. \\
+  Init\_Win\_bytes\_forward   & Initial TCP window size advertised in the forward direction. \\
+  Init\_Win\_bytes\_backward  & Initial TCP window size advertised in the backward direction. \\
+  \bottomrule
+\end{tabularx}
+
+\vspace{1em}
+
+\noindent\textit{Note on bulk features.} A ”bulk” is a series of data sending packets back-to-back all going in the same direction. CICFlowMeter calculates such counts on consecutive streaks of data sending packets, if there are no long periods of sending data on the flow these are often zero, which is why several of them get filtered out by the variance filter in Section~\ref{sec:results_features}.
+
+% ── Engineered ───────────────────────────────────────────────
+\section{Engineered features}
+\label{app:feat_engineered}
+
+The three features below are generated not by CICFlowMeter but by us by calculating counts from above (as in Section \ref{sec:results_features}), which will be replicated perfectly on live data.
+
+
+\noindent\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Definition} \\
+  \midrule
+  fwd\_bwd\_pkt\_ratio  & Forward packet count divided by backward packet count. \\
+  fwd\_bwd\_byte\_ratio & Forward byte count divided by backward byte count. \\
+  avg\_fwd\_pkt\_size   & Total forward bytes divided by total forward packets. \\
+  \bottomrule
+\end{tabularx}
+
+% ── Removed features ─────────────────────────────────────────
+\section{Features removed during selection}
+\label{app:feat_dropped}
+
+Of the 80 candidate features available once the three engineered ratios had been added, 31 were removed before training, leaving the 49 the detector uses. Table~\ref{tab:dropped_constant} lists the eight columns whose value is identical in every flow of the prepared dataset, and Table~\ref{tab:dropped_corr} the 23 removed for redundancy, each with the retained feature it duplicates and the absolute correlation between them. The correlations are measured on a sample of 300,000 flows.
+
+\begin{table}[H]
+  \centering
+  \caption{The eight zero-variance features removed by the variance filter.}
+  \label{tab:dropped_constant}
+  \renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{lX}
+  \toprule
+  \textbf{Feature} & \textbf{Constant value} \\
+  \midrule
+  Bwd PSH Flags        & 0 \\
+  Bwd URG Flags        & 0 \\
+  Fwd Avg Bytes/Bulk   & 0 \\
+  Fwd Avg Packets/Bulk & 0 \\
+  Fwd Avg Bulk Rate    & 0 \\
+  Bwd Avg Bytes/Bulk   & 0 \\
+  Bwd Avg Packets/Bulk & 0 \\
+  Bwd Avg Bulk Rate    & 0 \\
+  \bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{The 23 features removed by the correlation filter, with the retained feature each duplicates.}
+  \label{tab:dropped_corr}
+  \renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{lXr}
+  \toprule
+  \textbf{Removed feature} & \textbf{Duplicates} & $|\rho|$ \\
+  \midrule
+  Total Backward Packets      & Total Fwd Packets           & 0.998 \\
+  Total Length of Bwd Packets & act\_data\_pkt\_fwd         & 0.994 \\
+  Fwd Packet Length Std       & Fwd Packet Length Max       & 0.969 \\
+  Bwd Packet Length Mean      & Bwd Packet Length Max       & 0.958 \\
+  Bwd Packet Length Std       & Bwd Packet Length Max       & 0.982 \\
+  Fwd IAT Total               & Flow Duration               & 0.999 \\
+  Fwd IAT Max                 & Flow IAT Max                & 0.998 \\
+  Fwd Packets/s               & Flow Packets/s              & 0.980 \\
+  Packet Length Std           & Max Packet Length           & 0.984 \\
+  SYN Flag Count              & Fwd PSH Flags               & 1.000 \\
+  CWE Flag Count              & Fwd URG Flags               & 1.000 \\
+  ECE Flag Count              & RST Flag Count              & 0.994 \\
+  Average Packet Size         & Packet Length Mean          & 0.998 \\
+  Avg Fwd Segment Size        & Fwd Packet Length Mean      & 1.000 \\
+  Avg Bwd Segment Size        & Bwd Packet Length Max       & 0.958 \\
+  Subflow Fwd Packets         & Total Fwd Packets           & 1.000 \\
+  Subflow Fwd Bytes           & Total Length of Fwd Packets & 1.000 \\
+  Subflow Bwd Packets         & Total Fwd Packets           & 0.998 \\
+  Subflow Bwd Bytes           & act\_data\_pkt\_fwd         & 0.994 \\
+  Idle Mean                   & Flow IAT Max                & 0.980 \\
+  Idle Max                    & Flow IAT Max                & 0.990 \\
+  Idle Min                    & Flow IAT Max                & 0.951 \\
+  avg\_fwd\_pkt\_size         & Fwd Packet Length Mean      & 1.000 \\
+  \bottomrule
+\end{tabularx}
+\end{table}

@@ -1,0 +1,25 @@
+%% ============================================================
+%%  General Conclusion
+%%  Broad, project-level closing. Future work here is the
+%%  high-altitude outlook; the specific technical next steps
+%%  Include in main.tex as an unnumbered chapter, like the
+%%  General Introduction.
+%% ============================================================
+
+\chapter*{General Conclusion and Perspectives}
+\addcontentsline{toc}{chapter}{General Conclusion and Perspectives}
+\markboth{General Conclusion and Perspectives}{}
+
+We had multiple objectives all focused on the idea of building a learning intrusion detection system appropriate for a cloud environment  learning feature space representations of attacks as opposed to predefined signature patterns of the same attacks, running efficiently on cheaper commodity hardware rather than inside expensive vendor locked platforms, providing explanations rather than simple report formatted output, and scanning real traffic, rather than performing analysis on masses of static data files. We authored chapters on the background to this topic, the architecture we designed for such a system, and lastly the implementation and testing of the detection core itself.
+
+The outcome of the research has been a functioning detector. We have produced an imbalance aware, learning ready dataset based on CICIDS-2017 \cite{sharafaldin2018cicids}, reduced it to 49 flow features for the purpose of comparing different models, have tested a series of 3 differing models and met the requirement of the comparison being an "apples to apples" compare. The simple Random Forest model has been deemed the best choice; it reached an F1 score against the test set of $0.997$ at a throughput of roughly 45{,}000 flows per second, and is configured with SHAP \cite{lundberg2017shap} in order to output an explanation for each and every prediction deemed as an attack.
+
+In conclusion, a far more important insight has been gained that is of even more value than our scores against benchmark training data. On traffic generated independently in our own laboratory, the detector returned the whole network as clear on a normal load test (no false positives) and partially detected an SSH brute force    and yet it failed on 100\% of the two high volume test loads, the port scan and the SYN flood, due to a fundamental representation problem. Both high volume test loads consisted of rapid series of minimal single packet flows. The CICIDS-2017 dataset we trained our classifier with was abundant with data gathered from multi packet traffic, which the classifier learned as the representative shape; it determined our two simple traffic structures as uninteresting, and did not classify them as malicious.
+
+Measured against the initial objectives, the first three are met in full  a learning based detector, deployable on commodity virtualisation, explaining every alert    while the fourth is met in its core: detection was validated at real time capable throughput, with the streaming deployment specified as a design and deliberately left to future work.
+
+This we consider the most significant finding of this work. The disparity found in our analysis (high test benchmark, low real life effectiveness) has been present throughout security machine learning research, yet it has rarely been identified explicitly. In this report, we have quantified this behavior, reasoned why it takes shape attack by attack, and traced its cause to the mismatch in flow level representation between the benchmark's attack implementations and our own. For the sake of proving the point, we have established that a calculated $0.997$ benchmark cannot be read as evidence of real world effectiveness, along with a complete classification based rationale for why the various types of malicious traffic went unidentified in a real world situation.
+
+The current study allows us to make 3 significant suggestions of future research topics: (1) An integrated model based upon real time streaming rate monitoring combined with the learned classifier, to create our very own real world, combined shape and volume based anomaly detection. (2) Real world laboratory work to create truly applicable training datasets based solely on our own real traffic data generated within our labs, labelled by construction and requiring no manual annotation. (3) Taking our developed core technology forward to an entire real time system, along with an analyst interface.
+
+Our own learning from this research points to a fundamental fact underlying these future directions: if a detection core can be nearly flawless against a representative public benchmark and still miss entire categories of attack generated a few metres away, then the focus on enhanced learning algorithms alone stands to question. Instead, one must identify the critical problem, which is our current method of generating training datasets    currently our greatest barrier to creating successful, useful and applicable real time learning based threat analysis security software.

@@ -1,0 +1,26 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Security responsibility distribution(P = Provider, C = Customer)}}{5}{table.caption.10}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Threats in cloud environments and their detection signatures in flow data.}}{11}{table.caption.12}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces The four possible outcomes of a binary classification framed for IDS}}{16}{table.caption.13}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Classical machine learning vs.\ deep learning}}{22}{table.caption.16}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Families of ML/DL approaches in academic IDS research.}}{28}{table.caption.17}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces VM1 peak memory budget under sustained attack simulation.}}{37}{table.caption.19}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces CICIDS-2017 days selected for training, with rationale.}}{39}{table.caption.20}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Effect of each cleaning step on the number of flows.}}{45}{table.caption.22}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Feature count at each stage of preparation.}}{47}{table.caption.25}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Data partitions used for training, model selection and final evaluation.}}{49}{table.caption.27}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Configuration of the three candidate models. Every run uses seed 42.}}{50}{table.caption.28}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Candidate model performance on the validation split of CICIDS-2017.}}{50}{table.caption.29}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces Test-set performance of the deployed model at the two operating points marked in Figure~\ref {fig:rf_pr}.}}{54}{table.caption.34}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Per-class performance of the multiclass Random Forest on its held-out set.}}{56}{table.caption.36}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Detection results on independently generated lab traffic.}}{61}{table.caption.40}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces The eight zero-variance features removed by the variance filter.}}{74}{table.caption.44}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces The 23 features removed by the correlation filter, with the retained feature each duplicates.}}{75}{table.caption.45}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

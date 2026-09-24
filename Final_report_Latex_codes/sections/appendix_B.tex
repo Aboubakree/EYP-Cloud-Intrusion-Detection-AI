@@ -1,0 +1,61 @@
+%% ============================================================
+%%  Appendix B - Model Training Notebook
+%%  A pointer page, not a full code dump. Describes the notebook,
+%%  its structure, and where the complete version lives. Optionally
+%%  includes one representative excerpt.
+%%  Requires \appendix to have been called before \input.
+%%  Uses listings (lstlisting); if not already loaded, add
+%%  \usepackage{listings} to the preamble.
+%% ============================================================
+
+\chapter{Model Training Notebook}
+\label{app:notebook}
+
+All the steps listed that forms the entire model-training pipeline, has been developed and designed on Google Colab in a jupyter notebook (with GPU acceleration). This notebook acts as a one and only reference point to every step performed from raw-data to exported model assets and will be provided with the electronic copy of this thesis. All contents will be enumerated in this annex. The notebook name is \texttt{CICIDS2017\_training.ipynb}.
+
+\section{Contents}
+\label{app:notebook_contents}
+
+The notebook is organised into the following stages, in execution order:
+
+\begin{enumerate}
+  \item \textbf{Environment setup} : installation of dependencies and confirmation of GPU availability.
+  \item \textbf{Data loading} : reading and concatenating the six retained CICIDS-2017 files.
+  \item \textbf{Cleaning} : stripping column-name whitespace, replacing infinite values, repairing corrupted labels, and removing the duplicated header column (Section~\ref{sec:results_cleaning}).
+  \item \textbf{Exploratory analysis} : class distribution and feature summaries.
+  \item \textbf{Feature engineering} : construction of the three engineered ratio features (Section~\ref{sec:results_features}).
+  \item \textbf{Feature selection} : variance filtering to the final feature set, with the leakage-safe ordering of split, scale, and resample.
+  \item \textbf{Model training} : the three candidate models (Random Forest, CNN, LSTM).
+  \item \textbf{Comparison and evaluation} : the metrics of Table~\ref{tab:model_comparison}, the confusion matrix, and the precision--recall curve.
+  \item \textbf{Threshold tuning} : selection of the operating point on the validation split.
+  \item \textbf{Explainability} : SHAP analysis of the selected model.
+  \item \textbf{Export} : serialisation of the model, the scaler, and the frozen feature order metadata.
+\end{enumerate}
+
+\section{Exported artifacts}
+\label{app:notebook_artifacts}
+
+The notebook produces the artifacts consumed by the detection pipeline of Section~\ref{sec:results_validation}:
+
+\begin{center}
+\begin{tabular}{ll}
+  \toprule
+  \textbf{Artifact} & \textbf{Role} \\
+  \midrule
+  \texttt{detector\_rf.joblib}   & The trained Random Forest classifier. \\
+  \texttt{scaler.joblib}         & The fitted scaler (used by the deep models). \\
+  \texttt{model\_metadata.json}  & The frozen feature order and configuration. \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+% \section{Availability}
+% \label{app:notebook_availability}
+
+% The full notebook, together with the exported artifacts, is available in the project repository accompanying this thesis:
+
+% \begin{center}
+% \texttt{[https://github.com/\textit{Aboubakree}/\textit{EYP-Cloud-Intrusion-Detection-AI}]}
+% \end{center}
+
+% \noindent A copy is also included in the digital submission archive.

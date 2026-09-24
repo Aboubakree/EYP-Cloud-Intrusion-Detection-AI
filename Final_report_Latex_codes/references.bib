@@ -1,0 +1,533 @@
+%% ============================================================
+%%  references.bib
+%%  Chapter 1 entries - all DOIs verified via doi.org and
+%%  Semantic Scholar. Add new chapters below as we progress.
+%% ============================================================
+
+%% ── NIST Definition ──────────────────────────────────────────
+
+@techreport{mell2011nist,
+  author      = {Mell, Peter and Grance, Timothy},
+  title       = {The {NIST} Definition of Cloud Computing},
+  institution = {National Institute of Standards and Technology},
+  number      = {Special Publication 800-145},
+  year        = {2011},
+  month       = {September},
+  address     = {Gaithersburg, MD},
+  doi         = {10.6028/NIST.SP.800-145},
+  url         = {https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf}
+}
+
+%% ── NIST Cloud Computing Reference Architecture (SP 500-292) ──
+%% Verified: official NIST publication server. Contains the
+%% provider/consumer "scope of control" breakdown per service model
+%% (IaaS/PaaS/SaaS) that backs the shared-responsibility claims in
+%% Sections 1.3.1 and 1.3.4 and Table 1.1. Replaces the previous
+%% attribution to alouffi2021systematic, which does not cover this.
+
+@techreport{nist2011architecture,
+  author      = {Liu, Fang and Tong, Jin and Mao, Jian and Bohn, Robert
+                 and Messina, John and Badger, Lee and Leaf, Dawn},
+  title       = {{NIST} Cloud Computing Reference Architecture},
+  institution = {National Institute of Standards and Technology},
+  number      = {Special Publication 500-292},
+  year        = {2011},
+  month       = {September},
+  address     = {Gaithersburg, MD},
+  doi         = {10.6028/NIST.SP.500-292},
+  url         = {https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-292.pdf}
+}
+
+%% ── Cloud Security: Systematic Review (IEEE Access 2021) ─────
+%% DOI verified: https://doi.org/10.1109/ACCESS.2021.3073203
+%% 237 citations on Semantic Scholar as of 2024
+
+@article{alouffi2021systematic,
+  author  = {Alouffi, Bader and Hasnain, Muhammad and Alharbi, Abdullah
+             and Alosaimi, Wael and Alyami, Hashem and Ayaz, Muhammad},
+  title   = {A Systematic Literature Review on Cloud Computing Security:
+             Threats and Mitigation Strategies},
+  journal = {IEEE Access},
+  volume  = {9},
+  pages   = {57792--57807},
+  year    = {2021},
+  doi     = {10.1109/ACCESS.2021.3073203}
+}
+
+%% ── Cloud Security Challenges Survey (Journal of Supercomputing 2020) ──
+%% DOI verified: https://doi.org/10.1007/s11227-019-03076-1
+
+@article{tabrizchi2020survey,
+  author  = {Tabrizchi, Hamed and Kuchaki Rafsanjani, Marjan},
+  title   = {A Survey on Security Challenges in Cloud Computing:
+             Issues, Threats, and Solutions},
+  journal = {The Journal of Supercomputing},
+  volume  = {76},
+  number  = {12},
+  pages   = {9493--9532},
+  year    = {2020},
+  doi     = {10.1007/s11227-019-03076-1}
+}
+
+%% ── Brute Force and DDoS in Cloud (IEEE Access 2021) ─────────
+%% DOI verified: https://doi.org/10.1109/ACCESS.2021.3126535
+
+@article{nadeem2021intercept,
+  author  = {Nadeem, Muhammad and Arshad, Ali and Riaz, Saman
+             and Band, Shahab S. and Mosavi, Amir},
+  title   = {Intercept the Cloud Network From Brute Force and {DDoS}
+             Attacks via Intrusion Detection and Prevention System},
+  journal = {IEEE Access},
+  volume  = {9},
+  pages   = {152300--152309},
+  year    = {2021},
+  doi     = {10.1109/ACCESS.2021.3126535}
+}
+
+%% ── DDoS Defense Mechanisms in Cloud (IEEE Comm. Surveys 2019) ──
+%% DOI verified: https://doi.org/10.1109/COMST.2019.2934468
+
+@article{agrawal2019ddos,
+  author  = {Agrawal, Neha and Tapaswi, Shashikala},
+  title   = {Defense Mechanisms Against {DDoS} Attacks in a Cloud
+             Computing Environment: State-of-the-Art and Research Challenges},
+  journal = {IEEE Communications Surveys \& Tutorials},
+  volume  = {21},
+  number  = {4},
+  pages   = {3769--3795},
+  year    = {2019},
+  doi     = {10.1109/COMST.2019.2934468}
+}
+
+%% ── CICIDS-2017 Dataset (ICISSP 2018) ────────────────────────
+%% DOI verified: https://doi.org/10.5220/0006639801080116
+
+@inproceedings{sharafaldin2018cicids,
+  author    = {Sharafaldin, Iman and Habibi Lashkari, Arash
+               and Ghorbani, Ali A.},
+  title     = {Toward Generating a New Intrusion Detection Dataset
+               and Intrusion Traffic Characterization},
+  booktitle = {Proceedings of the 4th International Conference on
+               Information Systems Security and Privacy (ICISSP)},
+  year      = {2018},
+  pages     = {108--116},
+  publisher = {SciTePress},
+  doi       = {10.5220/0006639801080116}
+}
+
+%% ── VENOM vulnerability advisory (CrowdStrike, primary source) ──
+%% Verified directly: https://venom.crowdstrike.com/
+%% Original disclosure by Jason Geffner, CrowdStrike, May 2015.
+%% Used specifically for the VM-escape / hypervisor-boundary claim -
+%% NOT attributed to alouffi2021systematic, which does not cover this.
+
+@misc{crowdstrike_venom2015,
+  author       = {{National Vulnerability Database}},
+  title        = {{CVE-2015-3456} Detail ({VENOM} Vulnerability)},
+  year         = {2015},
+  howpublished = {NIST National Vulnerability Database},
+  url          = {https://nvd.nist.gov/vuln/detail/CVE-2015-3456},
+  note         = {Originally discovered and disclosed by Jason Geffner, CrowdStrike, May 2015}
+}
+
+%% ── East-west / north-south traffic security (SmartNICs survey) ──
+%% Verified: https://arxiv.org/abs/2405.09499 (submitted to IEEE)
+%% Section VII of the paper directly covers the security gap between
+%% perimeter-protected North-South traffic and largely uninspected
+%% East-West traffic - used specifically for that claim.
+
+@misc{kfoury2024smartnics,
+  author       = {Kfoury, Elie and Choueiri, Samia and Mazloum, Ali
+                  and AlSabeh, Ali and Gomez, Jose and Crichigno, Jorge},
+  title        = {A Comprehensive Survey on {SmartNICs}: Architectures,
+                  Development Models, Applications, and Research Directions},
+  year         = {2024},
+  howpublished = {arXiv preprint arXiv:2405.09499},
+  doi          = {10.48550/arXiv.2405.09499},
+  url          = {https://arxiv.org/abs/2405.09499},
+  note         = {Submitted to IEEE for possible publication}
+}
+
+%% ============================================================
+%%  Chapter 2 entries - Artificial Intelligence and Machine Learning
+%%  All DOIs verified via doi.org, Semantic Scholar, and arXiv.
+%% ============================================================
+
+%% ── Supervised/Unsupervised ML Systematic Review (Springer 2020) ──
+%% DOI verified: https://doi.org/10.1007/978-3-030-22475-2_1
+%% PRISMA-based review of 84 papers, 2015-2018.
+
+@incollection{alloghani2020systematic,
+  author    = {Alloghani, Mohamed and Al-Jumeily, Dhiya and Mustafina, Jamila
+               and Hussain, Abir and Aljaaf, Ahmed J.},
+  title     = {A Systematic Review on Supervised and Unsupervised Machine
+               Learning Algorithms for Data Science},
+  booktitle = {Supervised and Unsupervised Learning for Data Science},
+  editor    = {Berry, M. and Mohamed, A. and Yap, B.},
+  series    = {Unsupervised and Semi-Supervised Learning},
+  pages     = {3--21},
+  year      = {2020},
+  publisher = {Springer},
+  address   = {Cham},
+  doi       = {10.1007/978-3-030-22475-2_1}
+}
+
+%% ── Random Forests (Breiman, Machine Learning 2001) ──────────
+%% DOI verified: https://doi.org/10.1023/A:1010933404324
+%% Original paper introducing the algorithm. ~111,000+ citations.
+
+@article{breiman2001random,
+  author  = {Breiman, Leo},
+  title   = {Random Forests},
+  journal = {Machine Learning},
+  volume  = {45},
+  number  = {1},
+  pages   = {5--32},
+  year    = {2001},
+  doi     = {10.1023/A:1010933404324}
+}
+
+%% ── Deep Learning Overview (LeCun, Bengio, Hinton, Nature 2015) ──
+%% DOI verified: https://doi.org/10.1038/nature14539
+%% Standard high-level reference for deep learning, written by
+%% three of the field's most cited researchers.
+
+@article{lecun2015deep,
+  author  = {LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},
+  title   = {Deep Learning},
+  journal = {Nature},
+  volume  = {521},
+  number  = {7553},
+  pages   = {436--444},
+  year    = {2015},
+  doi     = {10.1038/nature14539}
+}
+
+%% ── AlexNet (Krizhevsky, Sutskever & Hinton, NeurIPS 2012) ────
+%% Stable URL verified: official NeurIPS proceedings page.
+%% This is "the 2012 paper" that cut the ImageNet error rate and
+%% kicked off the deep learning wave - cited in Section 2.5.1.
+
+@inproceedings{krizhevsky2012imagenet,
+  author    = {Krizhevsky, Alex and Sutskever, Ilya and Hinton, Geoffrey E.},
+  title     = {ImageNet Classification with Deep Convolutional Neural Networks},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {25},
+  pages     = {1097--1105},
+  year      = {2012},
+  publisher = {Curran Associates, Inc.},
+  url       = {https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html}
+}
+
+%% ── Introduction to CNNs (O'Shea & Nash, arXiv 2015) ──────────
+%% DOI verified: https://doi.org/10.48550/arXiv.1511.08458
+%% Widely cited accessible/introductory CNN reference (3700+ citations).
+
+@misc{oshea2015cnn,
+  author       = {O'Shea, Keiron and Nash, Ryan},
+  title        = {An Introduction to Convolutional Neural Networks},
+  year         = {2015},
+  howpublished = {arXiv preprint arXiv:1511.08458},
+  doi          = {10.48550/arXiv.1511.08458},
+  url          = {https://arxiv.org/abs/1511.08458}
+}
+
+%% ── SHAP (Lundberg & Lee, NeurIPS 2017) ───────────────────────
+%% Stable URL verified: official NeurIPS proceedings page.
+%% ~19,000+ citations on Semantic Scholar.
+
+@inproceedings{lundberg2017shap,
+  author    = {Lundberg, Scott M. and Lee, Su-In},
+  title     = {A Unified Approach to Interpreting Model Predictions},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {30},
+  pages     = {4765--4774},
+  year      = {2017},
+  publisher = {Curran Associates, Inc.},
+  url       = {https://papers.nips.cc/paper_files/paper/2017/hash/8a20a8621978632d76c43dfd28b67767-Abstract.html}
+}
+
+%% ── Class Imbalance in IDS Evaluation (Umer et al., journal version) ──
+%% Journal DOI verified: https://doi.org/10.1016/j.ijcip.2022.100516
+%% (Also available as arXiv:2202.11917, same content)
+
+@article{umer2022ics,
+  author  = {Umer, Muhammad Azmi and Junejo, Khurum Nazir and Jilani,
+             Muhammad Taha and Mathur, Aditya P.},
+  title   = {Machine Learning for Intrusion Detection in Industrial Control
+             Systems: Applications, Challenges, and Recommendations},
+  journal = {International Journal of Critical Infrastructure Protection},
+  volume  = {38},
+  pages   = {100516},
+  year    = {2022},
+  doi     = {10.1016/j.ijcip.2022.100516}
+}
+
+%% ── Classical vs Deep Learning IDS Comparison (Ahmad et al. 2021) ──
+%% DOI verified: https://doi.org/10.1002/ett.4150
+%% CC BY 4.0 licensed. Comparative systematic study, ~1000+ citations.
+
+@article{ahmad2021network,
+  author  = {Ahmad, Zeeshan and Khan, Adnan Shahid and Shiang, Cheah Wai
+             and Abdullah, Johari and Ahmad, Farhan},
+  title   = {Network Intrusion Detection System: A Systematic Study of
+             Machine Learning and Deep Learning Approaches},
+  journal = {Transactions on Emerging Telecommunications Technologies},
+  volume  = {32},
+  number  = {1},
+  pages   = {e4150},
+  year    = {2021},
+  doi     = {10.1002/ett.4150}
+}
+
+%% ── Decision Tree Induction (Quinlan, original ID3 paper) ─────
+%% DOI verified: https://doi.org/10.1007/BF00116251
+%% Foundational paper, ~18,700 citations on Semantic Scholar.
+
+@article{quinlan1986id3,
+  author  = {Quinlan, J. Ross},
+  title   = {Induction of Decision Trees},
+  journal = {Machine Learning},
+  volume  = {1},
+  number  = {1},
+  pages   = {81--106},
+  year    = {1986},
+  doi     = {10.1007/BF00116251}
+}
+
+%% ── Support Vector Machines (Cortes & Vapnik, original paper) ──
+%% DOI verified: https://doi.org/10.1007/BF00994018
+%% Foundational paper, ~40,000+ citations.
+
+@article{cortes1995svm,
+  author  = {Cortes, Corinna and Vapnik, Vladimir},
+  title   = {Support-Vector Networks},
+  journal = {Machine Learning},
+  volume  = {20},
+  number  = {3},
+  pages   = {273--297},
+  year    = {1995},
+  doi     = {10.1007/BF00994018}
+}
+
+%% ── k-Nearest Neighbours (Cover & Hart, original paper) ───────
+%% DOI verified: https://doi.org/10.1109/TIT.1967.1053964
+%% Foundational paper, ~13,000+ citations.
+
+@article{cover1967knn,
+  author  = {Cover, Thomas M. and Hart, Peter E.},
+  title   = {Nearest Neighbor Pattern Classification},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {13},
+  number  = {1},
+  pages   = {21--27},
+  year    = {1967},
+  doi     = {10.1109/TIT.1967.1053964}
+}
+
+%% ── Long Short-Term Memory (Hochreiter & Schmidhuber, original paper) ──
+%% DOI verified: https://doi.org/10.1162/neco.1997.9.8.1735
+%% Foundational paper, ~98,000+ citations.
+
+@article{hochreiter1997lstm,
+  author  = {Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  title   = {Long Short-Term Memory},
+  journal = {Neural Computation},
+  volume  = {9},
+  number  = {8},
+  pages   = {1735--1780},
+  year    = {1997},
+  doi     = {10.1162/neco.1997.9.8.1735}
+}
+
+%% ── Supervised vs Unsupervised IDS Comparison (Talaei Khoei & Kaabouch 2023) ──
+%% DOI verified: https://doi.org/10.3390/info14020103
+%% Peer-reviewed, open access, MDPI Information journal.
+
+@article{khoei2023comparative,
+  author  = {Talaei Khoei, Tala and Kaabouch, Naima},
+  title   = {A Comparative Analysis of Supervised and Unsupervised Models
+             for Detecting Attacks on the Intrusion Detection Systems},
+  journal = {Information},
+  volume  = {14},
+  number  = {2},
+  pages   = {103},
+  year    = {2023},
+  doi     = {10.3390/info14020103}
+}
+
+%% ── Semi-Supervised Learning for Cyber-security (Mvula et al. 2024) ──
+%% DOI verified: https://doi.org/10.1145/3657647
+%% Peer-reviewed, ACM Computing Surveys, very recent comprehensive survey.
+
+@article{mvula2024semisupervised,
+  author  = {Mvula, Paul Kiyambu and Branco, Paula and Jourdan, Guy-Vincent
+             and Viktor, Herna Lydia},
+  title   = {A Survey on the Applications of Semi-supervised Learning to
+             Cyber-security},
+  journal = {ACM Computing Surveys},
+  volume  = {56},
+  number  = {10},
+  pages   = {253},
+  year    = {2024},
+  doi     = {10.1145/3657647}
+}
+
+%% ── Amazon EC2 launch announcement (primary source) ───────────
+%% Verified directly: official AWS announcement page, dated Aug 24, 2006.
+
+@misc{aws_ec2_announcement2006,
+  author       = {{Amazon Web Services}},
+  title        = {Announcing {Amazon Elastic Compute Cloud} ({Amazon EC2}) - Beta},
+  year         = {2006},
+  howpublished = {AWS What's New},
+  url          = {https://aws.amazon.com/about-aws/whats-new/2006/08/24/announcing-amazon-elastic-compute-cloud-amazon-ec2---beta/}
+}
+
+%% ── RF vs Deep Learning Comparative Study (Ali et al. 2025) ───
+%% DOI verified: https://doi.org/10.3390/app15041903
+%% CC BY 4.0. Direct controlled comparison: RF (99.9%) vs CNN/LSTM (98%)
+%% on network intrusion detection. Exactly supports the "classical ML
+%% can match or beat deep learning" claim.
+
+@article{ali2025dlvsml,
+  author  = {Ali, Md Liakat and Thakur, Kutub and Schmeelk, Suzanna E.
+             and DeBello, Joan E. and Dragos, Denise M.},
+  title   = {Deep Learning vs.\ Machine Learning for Intrusion Detection
+             in Computer Networks: A Comparative Study},
+  journal = {Applied Sciences},
+  volume  = {15},
+  number  = {4},
+  pages   = {1903},
+  year    = {2025},
+  doi     = {10.3390/app15041903}
+}
+
+%% ── XAI in IDS: analyst trust/usability (Mohale & Obagbuwa 2025) ──
+%% DOI verified: https://doi.org/10.3389/frai.2025.1526221
+%% CC BY open access. Directly on-topic systematic review.
+
+@article{mohale2025xaiids,
+  author  = {Mohale, Vincent Zibi and Obagbuwa, Ibidun Christiana},
+  title   = {A Systematic Review on the Integration of Explainable
+             Artificial Intelligence in Intrusion Detection Systems to
+             Enhancing Transparency and Interpretability in Cybersecurity},
+  journal = {Frontiers in Artificial Intelligence},
+  volume  = {8},
+  pages   = {1526221},
+  year    = {2025},
+  doi     = {10.3389/frai.2025.1526221}
+}
+
+
+@misc{mitre_attack_cloud,
+  author       = {{MITRE Corporation}},
+  title        = {{MITRE ATT\&CK} Matrix for Enterprise - Cloud},
+  year         = {2024},
+  howpublished = {MITRE ATT\&CK Knowledge Base},
+  url          = {https://attack.mitre.org/matrices/enterprise/cloud/}
+}
+%% ============================================================
+%%  Chapter 3 entries - Intrusion Detection: State of the Art
+%% ============================================================
+
+%% ── IDS Survey (Khraisat et al., Springer Cybersecurity 2019) ──
+%% DOI verified: https://doi.org/10.1186/s42400-019-0038-7
+%% Open access. Canonical SIDS/AIDS taxonomy survey; the zero-day
+%% signature limitation statement was verified verbatim in the
+%% full text (paraphrased in chapter 3 to protect similarity).
+
+@article{khraisat2019survey,
+  author  = {Khraisat, Ansam and Gondal, Iqbal and Vamplew, Peter
+             and Kamruzzaman, Joarder},
+  title   = {Survey of Intrusion Detection Systems: Techniques,
+             Datasets and Challenges},
+  journal = {Cybersecurity},
+  volume  = {2},
+  number  = {1},
+  pages   = {20},
+  year    = {2019},
+  doi     = {10.1186/s42400-019-0038-7}
+}
+
+%% ── Snort zero-day empirical study (Holm, IEEE HICSS 2014) ────
+%% DOI verified: https://doi.org/10.1109/HICSS.2014.600
+%% Figures verified against abstract: 356 attacks (183 zero-day),
+%% 17% mean zero-day detection, 8.2% conservative estimate,
+%% 54% for known attacks.
+
+@inproceedings{holm2014signature,
+  author    = {Holm, Hannes},
+  title     = {Signature Based Intrusion Detection for Zero-Day
+               Attacks: (Not) A Closed Chapter?},
+  booktitle = {Proceedings of the 47th Hawaii International Conference
+               on System Sciences (HICSS)},
+  year      = {2014},
+  pages     = {4895--4904},
+  publisher = {IEEE},
+  doi       = {10.1109/HICSS.2014.600}
+}
+
+%% ── GuardDuty suppression rules (AWS documentation, primary) ──
+%% Used only for the narrow claim that AWS provides suppression
+%% rules to auto-archive findings judged non-threatening.
+%% (Replaces the AWS re:Post forum thread from the v1 report,
+%% which is too informal for the thesis.)
+
+@misc{aws_guardduty_suppression,
+  author       = {{Amazon Web Services}},
+  title        = {Suppression Rules in {Amazon GuardDuty}},
+  year         = {2022},
+  howpublished = {AWS Documentation},
+  url          = {https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html}
+}
+
+%% ── DL algorithms in IDS review (Kimanzi et al., arXiv 2024) ──
+%% arXiv preprint arXiv:2402.17020. Covers CNN/RNN/LSTM/AE/GAN
+%% families applied to IDS. Preprint status noted - check
+%% periodically for a journal version.
+
+@misc{kimanzi2024deep,
+  author       = {Kimanzi, Richard and Kimanga, Peter and Cherori, Dedan
+                  and Gikunda, Patrick K.},
+  title        = {Deep Learning Algorithms Used in Intrusion Detection
+                  Systems -- A Review},
+  year         = {2024},
+  howpublished = {arXiv preprint arXiv:2402.17020},
+  doi          = {10.48550/arXiv.2402.17020},
+  url          = {https://arxiv.org/abs/2402.17020}
+}
+
+%% ── Transformers/LLMs for IDS survey (Kheddar, Inf. Fusion 2025) ──
+%% DOI verified: https://doi.org/10.1016/j.inffus.2025.103347
+%% Journal version (Information Fusion, vol. 124, art. 103347) of
+%% arXiv:2408.07583 - upgraded from the preprint cited in the v1
+%% advancement report.
+
+@article{kheddar2025transformers,
+  author  = {Kheddar, Hamza},
+  title   = {Transformers and Large Language Models for Efficient
+             Intrusion Detection Systems: A Comprehensive Survey},
+  journal = {Information Fusion},
+  volume  = {124},
+  pages   = {103347},
+  year    = {2025},
+  doi     = {10.1016/j.inffus.2025.103347}
+}
+
+%% ── NERO few-shot zero-day detection (Computers & Security 2024) ──
+%% DOI carried over from the v1 advancement report:
+%% https://doi.org/10.1016/j.cose.2024.103898 - ADD TO MANUAL
+%% DOI-CHECK LIST before the final bibliography freeze.
+
+@article{cevallos2024nero,
+  author  = {Cevallos M., Jean F. and Rizzardi, Alessandra and
+             Sicari, Sabrina and Coen Porisini, Alberto},
+  title   = {{NERO}: {NEural} Algorithmic Reasoning for {zeRO}-day
+             Attack Detection in the {IoT}: A Hybrid Approach},
+  journal = {Computers \& Security},
+  volume  = {142},
+  pages   = {103898},
+  year    = {2024},
+  doi     = {10.1016/j.cose.2024.103898}
+}

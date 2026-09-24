@@ -1,0 +1,27 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces North-south vs\ east-west traffic in a cloud environment}}{8}{figure.caption.11}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Simplified decision tree for flagging SSH brute-force traffic}}{18}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces How a Random Forest reaches a decision \cite {breiman2001random}.}}{19}{figure.caption.15}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Four stage architecture of the proposed IDS}}{34}{figure.caption.18}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Realised two-machine laboratory on the KVM host.}}{43}{figure.caption.21}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Distribution of benign and attack flows in the prepared dataset.}}{45}{figure.caption.23}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Benign against attack distributions for two example features. Values are clipped at the 99th percentile and drawn as densities, so that the two very unequal class sizes stay comparable.}}{46}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Absolute correlation between the candidate features, on a sample of 300,000 flows. Axis labels are deliberately omitted; what matters is the block structure, each dark square being a group of features carrying nearly the same information.}}{48}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Precision, recall and F1 of the three candidates on the validation split.}}{51}{figure.caption.30}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Validation confusion matrices of the three candidates over the same 205,653 flows. The models are separated by their false-positive counts, not by their ability to catch attacks.}}{51}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Confusion matrix of the deployed Random Forest on the held-out CICIDS-2017 test set.}}{53}{figure.caption.32}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Precision-recall trade off of the selected model, with both operating points.}}{54}{figure.caption.33}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Confusion matrix of the multiclass Random Forest over the eleven retained attack types. The colour scale is logarithmic so that the small classes stay visible beside the benign class.}}{55}{figure.caption.35}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Gini feature importance of the deployed Random Forest, the fifteen highest of its 49 features.}}{57}{figure.caption.37}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces SHAP feature importance summary for the trained detector.}}{58}{figure.caption.38}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces SHAP values for individual flows. Each point is one flow, its colour encodes the value of the feature and its horizontal position the contribution of that feature to the attack verdict.}}{59}{figure.caption.39}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Per-alert explanation for one flagged SSH brute-force flow from the laboratory. Red bars push the verdict toward attack, blue bars toward benign.}}{62}{figure.caption.41}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces The generalization gap: benchmark attacks and lab attacks that share a name but not a flow structure.}}{63}{figure.caption.42}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
